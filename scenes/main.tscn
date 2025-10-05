@@ -22,3 +22,7 @@ polygon = PackedVector2Array(-179, -152, -192, 190, 182, 190, 174, -147, 152, -1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_jyhfs")
+
+[node name="Score" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
