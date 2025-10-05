@@ -4,6 +4,7 @@ const BALL_CLASS = preload("res://scenes/balls.tscn")
 
 @onready var score_label: Label = $UI/VBoxContainer/Score
 @onready var xp_amount: Label = $UI/VBoxContainer/XPBox/XPAmount
+@onready var xp_bar: TextureProgressBar = $UI/VBoxContainer/XPBox/XPBar
 
 var current_ball: RigidBody2D = null
 var gamestage = 0
@@ -69,6 +70,7 @@ func clear_all_balls():
 
 func _on_xp_change():
     xp_amount.text = str(Globals.xp)
+    xp_bar.value = Globals.xp
     
         
 
