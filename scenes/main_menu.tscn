@@ -1,9 +1,86 @@
-[gd_scene load_steps=0 format=3 uid="uid://dpsdyjnaagg3o"]
+[gd_scene load_steps=10 format=3 uid="uid://dpsdyjnaagg3o"]
 
-[node name="MainMenu" type="Control"]
+[ext_resource type="Script" uid="uid://dnjmb0bg6u7mp" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="PackedScene" uid="uid://cb56gyfkhl08w" path="res://assets/3d/lucy.glb" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://dojb6yfhy6ua3" path="res://assets/title.svg" id="2_ekxnf"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vue75"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_l6cm7"]
+sky_material = SubResource("ProceduralSkyMaterial_vue75")
+
+[sub_resource type="Environment" id="Environment_ekxnf"]
+background_mode = 2
+sky = SubResource("Sky_l6cm7")
+tonemap_mode = 2
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vue75"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l6cm7"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ekxnf"]
+size = Vector3(50, 1, 50)
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_bqqt6")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ekxnf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_vue75")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_l6cm7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_ekxnf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5637283, 5.5301237, 8.957895)
+
+[node name="lucy" parent="." instance=ExtResource("1_l6cm7")]
+transform = Transform3D(0.8124907, 0, -0.58297414, 0, 1, 0, 0.58297414, 0, 0.8124907, 10.282948, 5.5301237, 2.8606377)
+
+[node name="Skeleton3D" parent="lucy/Armature" index="0"]
+bones/0/position = Vector3(1.7678814, -0.4351459, 0.047494426)
+bones/6/rotation = Quaternion(0.9993487, 0.026803663, 0.0009530285, 0.024146877)
+bones/10/position = Vector3(0.22755334, -1.3371506, -3.440331)
+bones/16/rotation = Quaternion(0.9993487, -0.026803661, -0.00095302856, 0.02414688)
+
+[node name="AnimationPlayer" parent="lucy" index="1"]
+autoplay = "ArmatureAction"
+
+[node name="MenuUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuUI"]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 421.0
+offset_bottom = 648.0
+
+[node name="TextureRect" type="TextureRect" parent="MenuUI/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("2_ekxnf")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="StartButton" type="Button" parent="MenuUI/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "start"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="pressed" from="MenuUI/PanelContainer/StartButton" to="." method="_on_start_button_pressed"]
+
+[editable path="lucy"]
