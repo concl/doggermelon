@@ -114,3 +114,8 @@ func _on_xp_bar_value_changed(value: float) -> void:
 func _on_chest_button_pressed() -> void:
     game.hide()
     gatcha.show()
+
+
+func _on_button_pressed() -> void:
+    game.show()
+    gatcha.hide()

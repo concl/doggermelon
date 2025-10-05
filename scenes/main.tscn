@@ -201,4 +201,4 @@ mesh = SubResource("BoxMesh_tefeu")
 [connection signal="pressed" from="Game/UI/debug_end_game" to="." method="_on_debug_end_game_pressed"]
 [connection signal="pressed" from="Game/UI/debug_merge_all" to="." method="_on_debug_merge_all_pressed"]
 [connection signal="pressed" from="Game/UI/HBoxContainer/ChestButton" to="." method="_on_chest_button_pressed"]
-[connection signal="pressed" from="Gatcha/CanvasLayer/UI/Button" to="Gatcha" method="_on_button_pressed"]
+[connection signal="pressed" from="Gatcha/CanvasLayer/UI/Button" to="." method="_on_button_pressed"]
