@@ -1,13 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dx6bicmwfxw14"]
+[gd_scene load_steps=13 format=3 uid="uid://dx6bicmwfxw14"]
 
 [ext_resource type="Script" uid="uid://d27f6voftj48k" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://su76g6rv7t6s" path="res://assets/Shelf.png" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://60gfv8j7uh2f" path="res://assets/Bucket.png" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://wr130120yclm" path="res://icon.svg" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://dsd2hbvx0jvh2" path="res://scripts/gatcha.gd" id="5_tbgi4"]
-[ext_resource type="Script" uid="uid://d0vn0jkk7awv7" path="res://scripts/chest.gd" id="6_tefeu"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tipki"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jyhfs"]
 
@@ -30,23 +27,10 @@ background_mode = 2
 sky = SubResource("Sky_aqlsu")
 tonemap_mode = 2
 
-[sub_resource type="BoxMesh" id="BoxMesh_tefeu"]
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0wfyh")
 
-[node name="Game" type="CanvasLayer" parent="."]
-
-[node name="background" type="TextureRect" parent="Game"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = SubResource("PlaceholderTexture2D_tipki")
+[node name="Game" type="Node2D" parent="."]
 
 [node name="Shelf" type="StaticBody2D" parent="Game"]
 position = Vector2(243, 324)
@@ -86,7 +70,9 @@ polygon = PackedVector2Array(-179, -152, -192, 190, 182, 190, 174, -147, 152, -1
 [node name="Camera2D" type="Camera2D" parent="Game"]
 position = Vector2(576, 324)
 
-[node name="UI" type="Control" parent="Game"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Game"]
+
+[node name="UI" type="Control" parent="Game/CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -95,32 +81,32 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Game/UI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Game/CanvasLayer/UI"]
 layout_mode = 0
 offset_right = 766.0
 offset_bottom = 50.0
 
-[node name="Score" type="Label" parent="Game/UI/VBoxContainer"]
+[node name="Score" type="Label" parent="Game/CanvasLayer/UI/VBoxContainer"]
 layout_mode = 2
 
-[node name="XPBox" type="HBoxContainer" parent="Game/UI/VBoxContainer"]
+[node name="XPBox" type="HBoxContainer" parent="Game/CanvasLayer/UI/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="XPLabel" type="Label" parent="Game/UI/VBoxContainer/XPBox"]
+[node name="XPLabel" type="Label" parent="Game/CanvasLayer/UI/VBoxContainer/XPBox"]
 layout_mode = 2
 text = "XP: "
 
-[node name="XPAmount" type="Label" parent="Game/UI/VBoxContainer/XPBox"]
+[node name="XPAmount" type="Label" parent="Game/CanvasLayer/UI/VBoxContainer/XPBox"]
 layout_mode = 2
 
-[node name="XPBar" type="TextureProgressBar" parent="Game/UI/VBoxContainer/XPBox"]
+[node name="XPBar" type="TextureProgressBar" parent="Game/CanvasLayer/UI/VBoxContainer/XPBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 nine_patch_stretch = true
 texture_progress = SubResource("PlaceholderTexture2D_jyhfs")
 
-[node name="debug_end_game" type="Button" parent="Game/UI"]
+[node name="debug_end_game" type="Button" parent="Game/CanvasLayer/UI"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 608.0
@@ -129,7 +115,7 @@ offset_bottom = 639.0
 text = "eng game
 "
 
-[node name="debug_merge_all" type="Button" parent="Game/UI"]
+[node name="debug_merge_all" type="Button" parent="Game/CanvasLayer/UI"]
 layout_mode = 0
 offset_left = 117.0
 offset_top = 603.0
@@ -137,14 +123,14 @@ offset_right = 201.0
 offset_bottom = 634.0
 text = "MERGE ALL"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Game/UI"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Game/CanvasLayer/UI"]
 layout_mode = 0
 offset_left = 1069.0
 offset_top = 18.0
 offset_right = 1109.0
 offset_bottom = 58.0
 
-[node name="ChestButton" type="TextureButton" parent="Game/UI/HBoxContainer"]
+[node name="ChestButton" type="TextureButton" parent="Game/CanvasLayer/UI/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = ExtResource("4_jyhfs")
@@ -155,16 +141,26 @@ texture_focused = SubResource("PlaceholderTexture2D_o6xl0")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="ChestCount" type="Label" parent="Game/UI/HBoxContainer"]
+[node name="ChestCount" type="Label" parent="Game/CanvasLayer/UI/HBoxContainer"]
 layout_mode = 2
 
 [node name="test_gamestage" type="Label" parent="Game"]
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="Gatcha" type="CanvasLayer" parent="."]
+[node name="Gatcha" type="Node2D" parent="."]
 visible = false
 script = ExtResource("5_tbgi4")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Gatcha"]
+
+[node name="Chest" type="Node3D" parent="Gatcha/CanvasLayer2"]
+
+[node name="Camera3D" type="Camera3D" parent="Gatcha/CanvasLayer2/Chest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9245683)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Gatcha/CanvasLayer2/Chest"]
+environment = SubResource("Environment_al0gs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Gatcha"]
 
@@ -183,22 +179,8 @@ offset_right = 8.0
 offset_bottom = 8.0
 text = "back"
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="Gatcha"]
-
-[node name="Chest" type="Node3D" parent="Gatcha/CanvasLayer2"]
-script = ExtResource("6_tefeu")
-
-[node name="Camera3D" type="Camera3D" parent="Gatcha/CanvasLayer2/Chest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9245683)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Gatcha/CanvasLayer2/Chest"]
-environment = SubResource("Environment_al0gs")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Gatcha/CanvasLayer2/Chest"]
-mesh = SubResource("BoxMesh_tefeu")
-
-[connection signal="value_changed" from="Game/UI/VBoxContainer/XPBox/XPBar" to="." method="_on_xp_bar_value_changed"]
-[connection signal="pressed" from="Game/UI/debug_end_game" to="." method="_on_debug_end_game_pressed"]
-[connection signal="pressed" from="Game/UI/debug_merge_all" to="." method="_on_debug_merge_all_pressed"]
-[connection signal="pressed" from="Game/UI/HBoxContainer/ChestButton" to="." method="_on_chest_button_pressed"]
+[connection signal="value_changed" from="Game/CanvasLayer/UI/VBoxContainer/XPBox/XPBar" to="." method="_on_xp_bar_value_changed"]
+[connection signal="pressed" from="Game/CanvasLayer/UI/debug_end_game" to="." method="_on_debug_end_game_pressed"]
+[connection signal="pressed" from="Game/CanvasLayer/UI/debug_merge_all" to="." method="_on_debug_merge_all_pressed"]
+[connection signal="pressed" from="Game/CanvasLayer/UI/HBoxContainer/ChestButton" to="." method="_on_chest_button_pressed"]
 [connection signal="pressed" from="Gatcha/CanvasLayer/UI/Button" to="Gatcha" method="_on_button_pressed"]

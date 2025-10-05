@@ -1,12 +1,14 @@
 extends Node2D
 
-const GATCHA = preload("uid://ky4psqp3haic")
 const BALL_CLASS = preload("res://scenes/balls.tscn")
+@onready var gatcha: CanvasLayer = $Gatcha
 
-@onready var score_label: Label = $CanvasLayer/UI/VBoxContainer/Score
-@onready var xp_amount: Label = $CanvasLayer/UI/VBoxContainer/XPBox/XPAmount
-@onready var xp_bar: TextureProgressBar = $CanvasLayer/UI/VBoxContainer/XPBox/XPBar
-@onready var xp_collider: Area2D = $XPCollider
+@onready var game: CanvasLayer = $Game
+@onready var score_label: Label = $Game/UI/VBoxContainer/Score
+@onready var xp_amount: Label = $Game/UI/VBoxContainer/XPBox/XPAmount
+@onready var xp_bar: TextureProgressBar = $Game/UI/VBoxContainer/XPBox/XPBar
+@onready var bucket_sprite = $Game/Bucket/Sprite2D
+@onready var xp_label: Label = $Game/UI/VBoxContainer/XPBox/XPLabel
 
 var current_ball: RigidBody2D = null
 var gamestage = 0
@@ -20,10 +22,10 @@ func spawn_new_ball():
 	if current_ball:
 		return
 
-	current_ball = BALL_CLASS.instantiate()
-	current_ball.spawn(gamestage)
-	current_ball.holding = true
-	add_child(current_ball)
+    current_ball = BALL_CLASS.instantiate()
+    current_ball.spawn(gamestage)
+    current_ball.holding = true
+    game.add_child(current_ball)
 
 	var screen_size = get_viewport().size
 	current_ball.global_position = Vector2(screen_size.x / 2, 50)
@@ -33,26 +35,29 @@ func spawn_new_ball():
 	
 
 func _process(_delta):
-	if current_ball:
-		var mouse_x = get_viewport().get_mouse_position().x
-		var sprite_size = $Bucket/Sprite2D.texture.get_size() * $Bucket/Sprite2D.global_scale
-		current_ball.global_position.x = clamp(mouse_x, $Bucket/Sprite2D.global_position.x - (sprite_size.x / 2.0)+40, $Bucket/Sprite2D.global_position.x + (sprite_size.x / 2.0)-40)
-	
-	var score = calculate_score()
-	score_label.text = "Score: " + str(score)
-	
-	if score > 50 && score < 200:
-		gamestage = 1
-	if score > 200:
-		gamestage = 2
-	
+    if current_ball:
+        var mouse_x = get_viewport().get_mouse_position().x
+        
+        var sprite_size = bucket_sprite.texture.get_size() * bucket_sprite.global_scale
+        current_ball.global_position.x = clamp(mouse_x, bucket_sprite.global_position.x - (sprite_size.x / 2.0)+40, bucket_sprite.global_position.x + (sprite_size.x / 2.0)-40)
+    
+    var score = calculate_score()
+    score_label.text = "Score: " + str(score)
+    
+    if score > 50 && score < 200:
+        gamestage = 1
+    if score > 200:
+        gamestage = 2
+    
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("drop_ball") and current_ball and current_ball.can_drop == true:
-		current_ball.freeze_ball(false)
-		current_ball.holding = false
-		current_ball = null
-		spawn_new_ball()
+    
+    
+    if game.visible and event.is_action_pressed("drop_ball") and current_ball and current_ball.can_drop == true:
+        current_ball.freeze_ball(false)
+        current_ball.holding = false
+        current_ball = null
+        spawn_new_ball()
 
 func level_to_value(level) -> int:
 	return 2**(level+1)
@@ -65,12 +70,12 @@ func calculate_score() -> int:
 	return score
 
 func clear_all_balls():
-	var total_score = 0
-	for node in get_tree().current_scene.get_children():
-		if node is Ball && not node.freeze:
-			node.move_to_location(xp_collider.global_position)
-	
-	Globals.update_xp(total_score)
+    var total_score = 0
+    for node in get_tree().current_scene.get_children():
+        if node is Ball && not node.freeze:
+            node.move_to_location(xp_label.global_position)
+    
+    Globals.update_xp(total_score)
 
 func merge_all_balls():
 	var all_balls: Dictionary={}
@@ -117,4 +122,5 @@ func _on_xp_bar_value_changed(value: float) -> void:
 
 
 func _on_chest_button_pressed() -> void:
-	get_tree().change_scene_to_packed(GATCHA)
+    game.hide()
+    gatcha.show()
