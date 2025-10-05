@@ -23,6 +23,39 @@ polygon = PackedVector2Array(-179, -152, -192, 190, 182, 190, 174, -147, 152, -1
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_jyhfs")
 
-[node name="Score" type="Label" parent="."]
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
+
+[node name="Score" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="XPBox" type="HBoxContainer" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="XPLabel" type="Label" parent="UI/VBoxContainer/XPBox"]
+layout_mode = 2
+text = "XP: "
+
+[node name="XPAmount" type="Label" parent="UI/VBoxContainer/XPBox"]
+layout_mode = 2
+
+[node name="debug_end_game" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 608.0
+offset_right = 92.0
+offset_bottom = 639.0
+text = "eng game
+"
+
+[connection signal="pressed" from="UI/debug_end_game" to="." method="_on_debug_end_game_pressed"]

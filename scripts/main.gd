@@ -2,11 +2,16 @@ extends Node2D
 
 const BALL_CLASS = preload("res://scenes/balls.tscn")
 
+@onready var score_label: Label = $UI/VBoxContainer/Score
+@onready var xp_amount: Label = $UI/VBoxContainer/XPBox/XPAmount
+
 var current_ball: RigidBody2D = null
 var gamestage = 0
 
 func _ready():
     spawn_new_ball()
+    Globals.xp_changed.connect(_on_xp_change)
+    
 
 func spawn_new_ball():
     if current_ball:
@@ -29,7 +34,7 @@ func _process(_delta):
         current_ball.global_position.x = clamp(mouse_x, 50, get_viewport().size.x - 50)
     
     var score = calculate_score()
-    $Score.text = "Score: " + str(score)
+    score_label.text = "Score: " + str(score)
     if score > 50 && score < 200:
         gamestage = 1
     if score > 200:
@@ -57,3 +62,16 @@ func clear_all_balls():
         if node.is_class("RigidBody2D"):
             var xp = level_to_value(node.lvl)
             node.queue_free()
+            total_score += xp
+    
+    Globals.update_xp(total_score)
+
+
+func _on_xp_change():
+    xp_amount.text = str(Globals.xp)
+    
+        
+
+
+func _on_debug_end_game_pressed() -> void:
+    clear_all_balls()
