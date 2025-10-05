@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx80xkdpiywu6"
-path="res://.godot/imported/ygreenball.png-599a4c84843cb3209a43c8b8c9be4782.ctex"
+uid="uid://j67g6c1ou3v5"
+path="res://.godot/imported/ball_clifford.png-d090cf8658e151c6555fc0d4abc3887c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/balls/ygreenball.png"
-dest_files=["res://.godot/imported/ygreenball.png-599a4c84843cb3209a43c8b8c9be4782.ctex"]
+source_file="res://assets/balls_dogs/ball_clifford.png"
+dest_files=["res://.godot/imported/ball_clifford.png-d090cf8658e151c6555fc0d4abc3887c.ctex"]
 
 [params]
 

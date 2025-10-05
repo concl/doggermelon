@@ -31,15 +31,29 @@ var spawn_probabilities : Dictionary = {
     }
 }
 
+var sprite_levels_dog = {
+    0: preload("res://assets/balls_dogs/ball_pomeranian.png"),
+    1: preload("res://assets/balls_dogs/ball_greyhound.png"),
+    2: preload("res://assets/balls_dogs/ball_pug.png"),
+    3: preload("res://assets/balls_dogs/ball_dachshund.png"),
+    4: preload("res://assets/balls_dogs/ball_shiba.png"),
+    5: preload("res://assets/balls_dogs/ball_poodle.png"),
+    6: preload("res://assets/balls_dogs/ball_golden.png"),
+    7: preload("res://assets/balls_dogs/ball_dane.png"),
+    8: preload("res://assets/balls_dogs/ball_bernard.png"),
+    9: preload("res://assets/balls_dogs/ball_clifford.png"),
+    10: preload("res://assets/balls_dogs/ball_cat.png")
+}
+
 var sprite_levels = {
-    0: preload("res://assets/balls/redball.png"),
-    1: preload("res://assets/balls/orangeball.png"),
-    2: preload("res://assets/balls/yellowball.png"),
-    3: preload("res://assets/balls/ygreenball.png"),
-    4: preload("res://assets/balls/greenball.png"),
-    5: preload("res://assets/balls/lblueball.png"),
-    6: preload("res://assets/balls/dblueball.png"),
-    7: preload("res://assets/balls/purpleball.png")
+    0: preload("res://assets/balls_default/redball.png"),
+    1: preload("res://assets/balls_default/orangeball.png"),
+    2: preload("res://assets/balls_default/yellowball.png"),
+    3: preload("res://assets/balls_default/ygreenball.png"),
+    4: preload("res://assets/balls_default/greenball.png"),
+    5: preload("res://assets/balls_default/lblueball.png"),
+    6: preload("res://assets/balls_default/dblueball.png"),
+    7: preload("res://assets/balls_default/purpleball.png")
 }
 
 func level_to_value(level) -> int:

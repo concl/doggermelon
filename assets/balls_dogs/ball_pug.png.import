@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://60gfv8j7uh2f"
-path="res://.godot/imported/Bucket.png-1624d7145c50f5a011019da3ce37f9ad.ctex"
+uid="uid://dx1glkdhsont0"
+path="res://.godot/imported/ball_pug.png-8bbd3e37b1c452c79d6b21d469cf7c8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bucket.png"
-dest_files=["res://.godot/imported/Bucket.png-1624d7145c50f5a011019da3ce37f9ad.ctex"]
+source_file="res://assets/balls_dogs/ball_pug.png"
+dest_files=["res://.godot/imported/ball_pug.png-8bbd3e37b1c452c79d6b21d469cf7c8c.ctex"]
 
 [params]
 

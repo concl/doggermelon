@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dooh847b8xjqu"
-path="res://.godot/imported/lblueball.png-0050e877c88674837975921dda6dac73.ctex"
+uid="uid://bxuikxd2u3w50"
+path="res://.godot/imported/ball_poodle.png-2c5c6d5ddd3c392059eb9ced46d34cc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/balls/lblueball.png"
-dest_files=["res://.godot/imported/lblueball.png-0050e877c88674837975921dda6dac73.ctex"]
+source_file="res://assets/balls_dogs/ball_poodle.png"
+dest_files=["res://.godot/imported/ball_poodle.png-2c5c6d5ddd3c392059eb9ced46d34cc8.ctex"]
 
 [params]
 

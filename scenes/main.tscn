@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d27f6voftj48k" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://su76g6rv7t6s" path="res://assets/Shelf.png" id="2_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://cu7hhjra5yece" path="res://assets/Bucket.png" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://60gfv8j7uh2f" path="res://assets/Bucket.png" id="3_jyhfs"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jyhfs"]
 
@@ -49,9 +49,9 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_jyhfs")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bucket"]
-position = Vector2(0.9999995, -7)
-scale = Vector2(1.8335559, 1.8969704)
-polygon = PackedVector2Array(-179, -152, -192, 190, 182, 190, 174, -147, 152, -131, 102, 92, 52, 129, -34, 127, -97, 89, -157, -136)
+position = Vector2(12.237995, 37.791706)
+scale = Vector2(2.8475933, 2.3793857)
+polygon = PackedVector2Array(-179, -152, -192, 190, 182, 190, 174, -147, 152, -131, 121.42255, 108.51889, 1.321106, 121.1272, -133.5296, 101.794464, -157, -136)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)

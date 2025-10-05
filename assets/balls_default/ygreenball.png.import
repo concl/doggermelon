@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbivolu2438j2"
-path="res://.godot/imported/dblueball.png-8e504786784da51a0f1c1e6b011ca411.ctex"
+uid="uid://bx80xkdpiywu6"
+path="res://.godot/imported/ygreenball.png-dee651225a0688995877078f724570e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/balls/dblueball.png"
-dest_files=["res://.godot/imported/dblueball.png-8e504786784da51a0f1c1e6b011ca411.ctex"]
+source_file="res://assets/balls_default/ygreenball.png"
+dest_files=["res://.godot/imported/ygreenball.png-dee651225a0688995877078f724570e9.ctex"]
 
 [params]
 

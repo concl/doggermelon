@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://60gfv8j7uh2f"
-path="res://.godot/imported/Bucket.png-1624d7145c50f5a011019da3ce37f9ad.ctex"
+uid="uid://dooh847b8xjqu"
+path="res://.godot/imported/lblueball.png-0e3d70bc859012067284d79a538818cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bucket.png"
-dest_files=["res://.godot/imported/Bucket.png-1624d7145c50f5a011019da3ce37f9ad.ctex"]
+source_file="res://assets/balls_default/lblueball.png"
+dest_files=["res://.godot/imported/lblueball.png-0e3d70bc859012067284d79a538818cd.ctex"]
 
 [params]
 
