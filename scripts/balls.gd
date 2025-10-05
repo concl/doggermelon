@@ -11,23 +11,23 @@ var holding = false
 
 var spawn_probabilities : Dictionary = {
     Globals.GameStage.EARLY: {
-        0: 0.9,
+        0: 0.8,
         1: 0.1,
-        2: 0,
-        3: 0 
+        2: 0.05,
+        3: 0.05
     },
     Globals.GameStage.MID: {
-        1: 0.40,
-        2: 0.30,
-        3: 0.20,
-        4: 0.10
+        0: 0.40,
+        1: 0.30,
+        2: 0.20,
+        3: 0.10
     },
     Globals.GameStage.LATE: {
-        2: 0.30,
-        3: 0.30,
-        4: 0.25,
-        5: 0.10,
-        6: 0.05
+        0: 0.20,
+        1: 0.40,
+        2: 0.20,
+        3: 0.15,
+        4: 0.05,
     }
 }
 
@@ -130,6 +130,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
     merge(other)
 
 func merge(other):
+    if lvl == 10:
+        return
+    
     merged = true
     other.merged = true
 
@@ -158,6 +161,3 @@ func spawn_merged_ball(location: Vector2):
     get_tree().current_scene.add_child(new_ball)
     new_ball.global_position = location
     return new_ball
-
-func get_level() -> int:
-    return lvl

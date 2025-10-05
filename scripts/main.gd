@@ -75,8 +75,8 @@ func clear_all_balls():
 func merge_all_balls():
     var all_balls: Dictionary={}
     for node in get_tree().current_scene.get_children():
-        if node.is_class("RigidBody2D") && not node.freeze:
-            var level = node.get_level()
+        if node.is_class("RigidBody2D") && not node.freeze && node.lvl != 10:
+            var level = node.lvl
             if not all_balls.has(level):
                 all_balls[level] = []    
             all_balls[level].append(node)
