@@ -1,3 +1,24 @@
-[gd_scene load_steps=0 format=3 uid="uid://ky4psqp3haic"]
+[gd_scene load_steps=4 format=3 uid="uid://ky4psqp3haic"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_64coc"]
+sky_horizon_color = Color(1.5513475, 1.5685976, 1.5925975, 1)
+ground_bottom_color = Color(1, 1, 1, 1)
+ground_horizon_color = Color(1.5513475, 1.5685976, 1.5925975, 1)
+
+[sub_resource type="Sky" id="Sky_aqlsu"]
+sky_material = SubResource("ProceduralSkyMaterial_64coc")
+
+[sub_resource type="Environment" id="Environment_al0gs"]
+background_mode = 2
+sky = SubResource("Sky_aqlsu")
+tonemap_mode = 2
 
 [node name="Gatcha" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_al0gs")
+
+[node name="Chest" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Chest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9245683)

@@ -88,6 +88,6 @@ func _on_xp_collider_body_entered(body: Node2D) -> void:
     
         
 
-
 func _on_xp_bar_value_changed(value: float) -> void:
-    pass # Replace with function body.
+    if value == 100:
+        pass
