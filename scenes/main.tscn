@@ -1,15 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dx6bicmwfxw14"]
+[gd_scene load_steps=5 format=3 uid="uid://dx6bicmwfxw14"]
 
 [ext_resource type="Script" uid="uid://d27f6voftj48k" path="res://scripts/main.gd" id="1_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://dot8xo3nuqn4t" path="res://scenes/balls.tscn" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://c83a5qq0pfqd1" path="res://assets/Walls.png" id="2_sugp2"]
 [ext_resource type="Script" uid="uid://dk2vwjqtkfnup" path="res://scripts/bucket.gd" id="3_tbgi4"]
 [ext_resource type="Script" uid="uid://ckywj2yvqefoa" path="res://scripts/camera_2d.gd" id="4_jyhfs"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0wfyh")
-
-[node name="Ball" parent="." instance=ExtResource("1_sugp2")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 script = ExtResource("3_tbgi4")
@@ -21,7 +18,7 @@ scale = Vector2(0.37251312, 0.37037036)
 texture = ExtResource("2_sugp2")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-179, -152, -192, 190, 182, 190, 174, -147, 152, -131, 153, 144, -159, 142, -157, -136)
+polygon = PackedVector2Array(-179, -152, -192, 190, 182, 190, 174, -147, 152, -131, 102, 92, 52, 129, -34, 127, -97, 89, -157, -136)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_jyhfs")
