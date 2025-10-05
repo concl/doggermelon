@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmvha6got75pb"]
+
+[ext_resource type="PackedScene" uid="uid://cb56gyfkhl08w" path="res://assets/3d/lucy.glb" id="1_bo3m1"]
+
+[node name="lucy" instance=ExtResource("1_bo3m1")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(1.8634651, 0.46758848, 0.22697195)
+bones/6/rotation = Quaternion(0.9993486, 0.026803657, 0.0009530284, 0.024146874)
+bones/10/position = Vector3(0.16675216, 0.45408946, -3.4413188)
+bones/16/rotation = Quaternion(0.9993487, -0.026803661, -0.00095302856, 0.024146877)
