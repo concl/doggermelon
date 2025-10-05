@@ -60,7 +60,7 @@ func level_to_value(level) -> int:
 func calculate_score() -> int:
     var score = 0
     for node in get_tree().current_scene.get_children():
-        if node is RigidBody2D:
+        if node is RigidBody2D && not node.freeze:
             score += level_to_value(node.lvl)
     return score
 
