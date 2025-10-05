@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbivolu2438j2"
-path="res://.godot/imported/dblueball.png-edd26a0e30174be8a46544d3350384a1.ctex"
+uid="uid://x3cne46hvxhi"
+path="res://.godot/imported/purpleball.png-f7165bd48d46528f464259d854d75414.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dblueball.png"
-dest_files=["res://.godot/imported/dblueball.png-edd26a0e30174be8a46544d3350384a1.ctex"]
+source_file="res://assets/balls/purpleball.png"
+dest_files=["res://.godot/imported/purpleball.png-f7165bd48d46528f464259d854d75414.ctex"]
 
 [params]
 

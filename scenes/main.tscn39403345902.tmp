@@ -33,6 +33,7 @@ polygon = PackedVector2Array(-347.5963, -11.749931, 364.4037, -10.749931, 362.40
 texture = ExtResource("2_tbgi4")
 
 [node name="Bucket" type="StaticBody2D" parent="."]
+visible = false
 script = ExtResource("3_tbgi4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bucket"]

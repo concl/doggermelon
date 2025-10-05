@@ -30,14 +30,14 @@ var spawn_probabilities : Dictionary = {
 }
 
 var sprite_levels = {
-    0: preload("res://assets/redball.png"),
-    1: preload("res://assets/orangeball.png"),
-    2: preload("res://assets/yellowball.png"),
-    3: preload("res://assets/ygreenball.png"),
-    4: preload("res://assets/greenball.png"),
-    5: preload("res://assets/lblueball.png"),
-    6: preload("res://assets/dblueball.png"),
-    7: preload("res://assets/purpleball.png")
+    0: preload("res://assets/balls/redball.png"),
+    1: preload("res://assets/balls/orangeball.png"),
+    2: preload("res://assets/balls/yellowball.png"),
+    3: preload("res://assets/balls/ygreenball.png"),
+    4: preload("res://assets/balls/greenball.png"),
+    5: preload("res://assets/balls/lblueball.png"),
+    6: preload("res://assets/balls/dblueball.png"),
+    7: preload("res://assets/balls/purpleball.png")
 }
 
 func get_scalar(level) -> Vector2:

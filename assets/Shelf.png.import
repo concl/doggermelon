@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x3cne46hvxhi"
-path="res://.godot/imported/purpleball.png-d3e36127423696228a637bd0cd29d3f5.ctex"
+uid="uid://su76g6rv7t6s"
+path="res://.godot/imported/Shelf.png-c6dd428bacd54ae5a4ec8dc83926409c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/purpleball.png"
-dest_files=["res://.godot/imported/purpleball.png-d3e36127423696228a637bd0cd29d3f5.ctex"]
+source_file="res://assets/Shelf.png"
+dest_files=["res://.godot/imported/Shelf.png-c6dd428bacd54ae5a4ec8dc83926409c.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dot8xo3nuqn4t"]
 
 [ext_resource type="Script" uid="uid://ynomxw5kdk07" path="res://scripts/balls.gd" id="1_tger7"]
-[ext_resource type="Texture2D" uid="uid://puhp5hw8uiee" path="res://assets/redball.png" id="2_kcjbe"]
+[ext_resource type="Texture2D" uid="uid://puhp5hw8uiee" path="res://assets/balls/redball.png" id="2_kcjbe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ystb"]
 radius = 751.5218
