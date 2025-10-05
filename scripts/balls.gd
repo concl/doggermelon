@@ -4,6 +4,7 @@ const BALL_CLASS = preload("res://scenes/balls.tscn")
 
 var lvl = 0
 var merged = false
+var can_drop = false
 
 var sprite_levels = {
     0: preload("res://assets/redball.png"),
@@ -43,7 +44,17 @@ func _ready() -> void:
     $Area2D/CollisionShape2D.scale = $Sprite2D.scale
     #global_position = Vector2(get_viewport().size.x/2, 0)
 
-    
+
+func play_grow_animation():
+    $Sprite2D.scale = Vector2(0.0001, 0.0001)
+    var tween = create_tween()
+    tween.tween_property($Sprite2D, "scale", get_scalar(lvl), 0.5)
+    tween.connect("finished", Callable(self, "_on_tween_finished"))
+
+func _on_tween_finished():
+    can_drop = true
+
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
     var other = area.get_parent()
     if other == null || freeze || other.freeze || other.lvl != lvl:

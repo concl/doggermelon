@@ -3,6 +3,7 @@ extends Node2D
 const BALL_CLASS = preload("res://scenes/balls.tscn")
 
 var current_ball: RigidBody2D = null
+var spawn_level = 0
 
 func _ready():
     spawn_new_ball()
@@ -12,12 +13,15 @@ func spawn_new_ball():
         return
 
     current_ball = BALL_CLASS.instantiate()
-    current_ball.setup(0)
+    current_ball.setup(spawn_level)
     add_child(current_ball)
 
     var screen_size = get_viewport().size
     current_ball.global_position = Vector2(screen_size.x / 2, 50)
     current_ball.freeze_ball(true)
+    
+    current_ball.play_grow_animation()
+    
 
 func _process(_delta):
     if current_ball:
