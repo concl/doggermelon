@@ -1,20 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://dx6bicmwfxw14"]
+[gd_scene load_steps=9 format=3 uid="uid://c20uddmy32f7n"]
 
 [ext_resource type="Script" uid="uid://d27f6voftj48k" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://su76g6rv7t6s" path="res://assets/Shelf.png" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://60gfv8j7uh2f" path="res://assets/Bucket.png" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://wr130120yclm" path="res://icon.svg" id="4_jyhfs"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jyhfs"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rkluo"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tbgi4"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ywx0f"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tefeu"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e1hce"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o6xl0"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
-size = Vector2(40, 20)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hmh72"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0wfyh")
@@ -91,7 +88,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 nine_patch_stretch = true
-texture_progress = SubResource("PlaceholderTexture2D_jyhfs")
+texture_progress = SubResource("PlaceholderTexture2D_rkluo")
 
 [node name="debug_end_game" type="Button" parent="CanvasLayer/UI"]
 layout_mode = 0
@@ -122,22 +119,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = ExtResource("4_jyhfs")
 texture_pressed = ExtResource("4_jyhfs")
-texture_hover = SubResource("PlaceholderTexture2D_tbgi4")
-texture_disabled = SubResource("PlaceholderTexture2D_tefeu")
-texture_focused = SubResource("PlaceholderTexture2D_o6xl0")
+texture_hover = SubResource("PlaceholderTexture2D_ywx0f")
+texture_disabled = SubResource("PlaceholderTexture2D_e1hce")
+texture_focused = SubResource("PlaceholderTexture2D_hmh72")
 ignore_texture_size = true
 stretch_mode = 4
 
 [node name="ChestCount" type="Label" parent="CanvasLayer/UI/HBoxContainer"]
 layout_mode = 2
-
-[node name="XPCollider" type="Area2D" parent="."]
-position = Vector2(37, 40)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="XPCollider"]
-shape = SubResource("RectangleShape2D_sugp2")
 
 [node name="test_gamestage" type="Label" parent="."]
 offset_right = 40.0
@@ -147,4 +136,3 @@ offset_bottom = 23.0
 [connection signal="pressed" from="CanvasLayer/UI/debug_end_game" to="." method="_on_debug_end_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/debug_merge_all" to="." method="_on_debug_merge_all_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/ChestButton" to="." method="_on_chest_button_pressed"]
-[connection signal="body_entered" from="XPCollider" to="." method="_on_xp_collider_body_entered"]
