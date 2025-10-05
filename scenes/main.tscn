@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dx6bicmwfxw14"]
+[gd_scene load_steps=9 format=3 uid="uid://dx6bicmwfxw14"]
 
 [ext_resource type="Script" uid="uid://d27f6voftj48k" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://su76g6rv7t6s" path="res://assets/Shelf.png" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://cu7hhjra5yece" path="res://assets/Bucket.png" id="3_jyhfs"]
-[ext_resource type="Texture2D" uid="uid://wr130120yclm" path="res://icon.svg" id="4_jyhfs"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jyhfs"]
 
@@ -101,6 +100,14 @@ offset_bottom = 639.0
 text = "eng game
 "
 
+[node name="debug_merge_all" type="Button" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 603.0
+offset_right = 201.0
+offset_bottom = 634.0
+text = "MERGE ALL"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI"]
 layout_mode = 0
 offset_left = 1069.0
@@ -111,8 +118,6 @@ offset_bottom = 58.0
 [node name="ChestButton" type="TextureButton" parent="CanvasLayer/UI/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("4_jyhfs")
-texture_pressed = ExtResource("4_jyhfs")
 texture_hover = SubResource("PlaceholderTexture2D_tbgi4")
 texture_disabled = SubResource("PlaceholderTexture2D_tefeu")
 texture_focused = SubResource("PlaceholderTexture2D_o6xl0")
@@ -132,4 +137,5 @@ shape = SubResource("RectangleShape2D_sugp2")
 
 [connection signal="value_changed" from="CanvasLayer/UI/VBoxContainer/XPBox/XPBar" to="." method="_on_xp_bar_value_changed"]
 [connection signal="pressed" from="CanvasLayer/UI/debug_end_game" to="." method="_on_debug_end_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/debug_merge_all" to="." method="_on_debug_merge_all_pressed"]
 [connection signal="body_entered" from="XPCollider" to="." method="_on_xp_collider_body_entered"]

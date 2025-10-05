@@ -120,10 +120,11 @@ func merge(other):
     other.merged = true
 
     var avg_position = (global_position + other.global_position) / 2
-    spawn_merged_ball(avg_position)
+    var new_ball = spawn_merged_ball(avg_position)
     
     other.queue_free()
     queue_free()
+    return new_ball
 
 
 func move_to_location(location: Vector2):
@@ -142,6 +143,7 @@ func spawn_merged_ball(location: Vector2):
     new_ball.lvl = lvl + 1
     get_tree().current_scene.add_child(new_ball)
     new_ball.global_position = location
+    return new_ball
 
 func get_level() -> int:
     return lvl
