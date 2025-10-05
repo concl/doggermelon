@@ -43,7 +43,7 @@ func _process(_delta):
     if score > 200:
         gamestage = 0
 
-func _input(event):
+func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("drop_ball") and current_ball and current_ball.can_drop == true:
         current_ball.freeze_ball(false)
         current_ball.holding = false
@@ -63,7 +63,7 @@ func calculate_score() -> int:
 func clear_all_balls():
     var total_score = 0
     for node in get_tree().current_scene.get_children():
-        if node is Ball:
+        if node is Ball && not node.freeze:
             node.move_to_location(xp_collider.global_position)
     
     Globals.update_xp(total_score)
@@ -71,7 +71,7 @@ func clear_all_balls():
 func merge_all_balls():
     var all_balls: Dictionary={}
     for node in get_tree().current_scene.get_children():
-        if node.is_class("RigidBody2D"):
+        if node.is_class("RigidBody2D") && not node.freeze:
             var level = node.get_level()
             if not all_balls.has(level):
                 all_balls[level] = []    
@@ -85,10 +85,6 @@ func merge_all_balls():
             var new_ball = ball_a.merge(ball_b)
             ball_a.queue_free()
             ball_b.queue_free()
-            
-            if not all_balls.has(level + 1):
-                all_balls[level + 1] = []
-            all_balls[level + 1].append(new_ball)
             
 func _on_xp_change():
     xp_amount.text = str(Globals.xp)
