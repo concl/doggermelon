@@ -1,5 +1,6 @@
 extends Node2D
 
+const GATCHA = preload("uid://ky4psqp3haic")
 const BALL_CLASS = preload("res://scenes/balls.tscn")
 
 @onready var score_label: Label = $CanvasLayer/UI/VBoxContainer/Score
@@ -111,3 +112,7 @@ func _on_xp_collider_body_entered(body: Node2D) -> void:
 func _on_xp_bar_value_changed(value: float) -> void:
     if value == 100:
         pass
+
+
+func _on_chest_button_pressed() -> void:
+    get_tree().change_scene_to_packed(GATCHA)

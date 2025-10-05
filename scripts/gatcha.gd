@@ -1,7 +1,7 @@
 extends Node2D
 
-const MAIN = preload("uid://dx6bicmwfxw14")
-const COLLECTIBLE = preload("uid://b1raf6v4657bs")
+const MAIN = preload("res://scenes/main.tscn")
+const COLLECTIBLE = preload("res://scenes/collectible.tscn")
 @onready var node_2d: Node2D = $CanvasLayer/Node2D
 
 var rewards = []
