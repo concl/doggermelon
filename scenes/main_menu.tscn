@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpsdyjnaagg3o"]
+[gd_scene load_steps=13 format=3 uid="uid://dpsdyjnaagg3o"]
 
 [ext_resource type="Script" uid="uid://dnjmb0bg6u7mp" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="PackedScene" uid="uid://cb56gyfkhl08w" path="res://assets/3d/lucy.glb" id="1_l6cm7"]
@@ -24,6 +24,114 @@ size = Vector3(50, 1, 50)
 [sub_resource type="BoxMesh" id="BoxMesh_ekxnf"]
 size = Vector3(50, 1, 50)
 
+[sub_resource type="Animation" id="Animation_bqqt6"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(6.5637283, 5.5301237, 8.957895), Vector3(9.4337635, 5.5301237, 3.935987)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.6409896, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuUI/Blocker:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.051148325),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuUI/Blocker:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wu84c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6.5637283, 5.5301237, 8.957895)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuUI/Blocker:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuUI/Blocker:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wu84c"]
+_data = {
+&"RESET": SubResource("Animation_wu84c"),
+&"fade_out": SubResource("Animation_bqqt6")
+}
+
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_bqqt6")
 
@@ -46,10 +154,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5637283, 5.5301237, 8.95789
 transform = Transform3D(0.8124907, 0, -0.58297414, 0, 1, 0, 0.58297414, 0, 0.8124907, 10.282948, 5.5301237, 2.8606377)
 
 [node name="Skeleton3D" parent="lucy/Armature" index="0"]
-bones/0/position = Vector3(1.7678814, -0.4351459, 0.047494426)
-bones/6/rotation = Quaternion(0.9993487, 0.026803663, 0.0009530285, 0.024146877)
-bones/10/position = Vector3(0.22755334, -1.3371506, -3.440331)
-bones/16/rotation = Quaternion(0.9993487, -0.026803661, -0.00095302856, 0.02414688)
+bones/0/position = Vector3(0.6655945, -0.8905988, -0.014917001)
+bones/6/rotation = Quaternion(0.9993487, 0.026803661, 0.00095302856, 0.024146877)
+bones/10/position = Vector3(0.22846916, -2.2691176, -3.457275)
+bones/16/rotation = Quaternion(0.9993487, -0.026803661, -0.00095302856, 0.024146877)
 
 [node name="AnimationPlayer" parent="lucy" index="1"]
 autoplay = "ArmatureAction"
@@ -62,25 +170,90 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MenuUI"]
-layout_mode = 0
-offset_left = 104.0
-offset_right = 421.0
-offset_bottom = 648.0
+[node name="Main" type="Control" parent="MenuUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
 
-[node name="TextureRect" type="TextureRect" parent="MenuUI/PanelContainer"]
-layout_mode = 2
+[node name="TextureRect" type="TextureRect" parent="MenuUI/Main"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 397.5
+offset_right = 714.5
+offset_bottom = 648.0
+grow_horizontal = 2
+mouse_filter = 2
 texture = ExtResource("2_ekxnf")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="StartButton" type="Button" parent="MenuUI/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuUI/Main"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 326.0
+offset_right = 202.0
+offset_bottom = 392.0
+
+[node name="StartButton" type="Button" parent="MenuUI/Main/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 text = "start"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="CollectionButton" type="Button" parent="MenuUI/Main/VBoxContainer"]
+layout_mode = 2
+text = "collection"
 
-[connection signal="pressed" from="MenuUI/PanelContainer/StartButton" to="." method="_on_start_button_pressed"]
+[node name="OptionsButton" type="Button" parent="MenuUI/Main"]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 391.0
+offset_right = 1067.0
+offset_bottom = 422.0
+text = "options"
+
+[node name="Options" type="Control" parent="MenuUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuUI/Options"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="MenuUI/Options/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Back"
+
+[node name="Blocker" type="ColorRect" parent="MenuUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wu84c")
+}
+
+[connection signal="pressed" from="MenuUI/Main/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MenuUI/Main/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MenuUI/Options/PanelContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
 [editable path="lucy"]
