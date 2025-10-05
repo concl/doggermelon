@@ -48,7 +48,7 @@ func _ready() -> void:
 func play_grow_animation():
     $Sprite2D.scale = Vector2(0.0001, 0.0001)
     var tween = create_tween()
-    tween.tween_property($Sprite2D, "scale", get_scalar(lvl), 0.5)
+    tween.tween_property($Sprite2D, "scale", get_scalar(lvl), 0.3)
     tween.connect("finished", Callable(self, "_on_tween_finished"))
 
 func _on_tween_finished():

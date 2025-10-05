@@ -29,7 +29,7 @@ func _process(_delta):
         current_ball.global_position.x = clamp(mouse_x, 50, get_viewport().size.x - 50)
 
 func _input(event):
-    if event.is_action_pressed("drop_ball") and current_ball:
+    if event.is_action_pressed("drop_ball") and current_ball and current_ball.can_drop == true:
         current_ball.freeze_ball(false)
         current_ball = null
         spawn_new_ball()
