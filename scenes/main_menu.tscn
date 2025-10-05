@@ -36,39 +36,27 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(6.5637283, 5.5301237, 8.957895), Vector3(9.4337635, 5.5301237, 3.935987)]
+"values": [Vector3(6.5637283, 5.5301237, 8.957895), Vector3(5.7333164, 5.5301237, 3.935987)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/path = NodePath("MenuUI/Blocker:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -0.6409896, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MenuUI/Blocker:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.051148325),
+"times": PackedFloat32Array(0, 0.08),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MenuUI/Blocker:color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuUI/Blocker:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -92,34 +80,22 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/path = NodePath("MenuUI/Blocker:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
+"update": 1,
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MenuUI/Blocker:visible")
+tracks/2/path = NodePath("MenuUI/Blocker:color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MenuUI/Blocker:color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -151,13 +127,13 @@ mesh = SubResource("BoxMesh_ekxnf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5637283, 5.5301237, 8.957895)
 
 [node name="lucy" parent="." instance=ExtResource("1_l6cm7")]
-transform = Transform3D(0.8124907, 0, -0.58297414, 0, 1, 0, 0.58297414, 0, 0.8124907, 10.282948, 5.5301237, 2.8606377)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8810606, 5.5301237, 2.8606377)
 
 [node name="Skeleton3D" parent="lucy/Armature" index="0"]
-bones/0/position = Vector3(0.6655945, -0.8905988, -0.014917001)
+bones/0/position = Vector3(-1.4816614, 0.4873361, 0.38973007)
 bones/6/rotation = Quaternion(0.9993487, 0.026803661, 0.00095302856, 0.024146877)
-bones/10/position = Vector3(0.22846916, -2.2691176, -3.457275)
-bones/16/rotation = Quaternion(0.9993487, -0.026803661, -0.00095302856, 0.024146877)
+bones/10/position = Vector3(0.06277184, 0.62460214, -3.6060574)
+bones/16/rotation = Quaternion(0.9993487, -0.02680366, -0.00095302844, 0.024146875)
 
 [node name="AnimationPlayer" parent="lucy" index="1"]
 autoplay = "ArmatureAction"
