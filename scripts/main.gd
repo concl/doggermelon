@@ -31,7 +31,7 @@ func spawn_new_ball():
 func _process(_delta):
     if current_ball:
         var mouse_x = get_viewport().get_mouse_position().x
-        current_ball.global_position.x = clamp(mouse_x, 50, get_viewport().size.x - 50)
+        current_ball.global_position.x = clamp(mouse_x, 300, get_viewport().size.x - 300)
     
     var score = calculate_score()
     score_label.text = "Score: " + str(score)
