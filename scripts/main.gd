@@ -2,9 +2,10 @@ extends Node2D
 
 const BALL_CLASS = preload("res://scenes/balls.tscn")
 
-@onready var score_label: Label = $UI/VBoxContainer/Score
-@onready var xp_amount: Label = $UI/VBoxContainer/XPBox/XPAmount
-@onready var xp_bar: TextureProgressBar = $UI/VBoxContainer/XPBox/XPBar
+@onready var score_label: Label = $CanvasLayer/UI/VBoxContainer/Score
+@onready var xp_amount: Label = $CanvasLayer/UI/VBoxContainer/XPBox/XPAmount
+@onready var xp_bar: TextureProgressBar = $CanvasLayer/UI/VBoxContainer/XPBox/XPBar
+@onready var xp_collider: Area2D = $XPCollider
 
 var current_ball: RigidBody2D = null
 var gamestage = 0
@@ -20,6 +21,7 @@ func spawn_new_ball():
 
     current_ball = BALL_CLASS.instantiate()
     current_ball.spawn(gamestage)
+    current_ball.holding = true
     add_child(current_ball)
 
     var screen_size = get_viewport().size
@@ -44,6 +46,7 @@ func _process(_delta):
 func _input(event):
     if event.is_action_pressed("drop_ball") and current_ball and current_ball.can_drop == true:
         current_ball.freeze_ball(false)
+        current_ball.holding = false
         current_ball = null
         spawn_new_ball()
 
@@ -60,10 +63,8 @@ func calculate_score() -> int:
 func clear_all_balls():
     var total_score = 0
     for node in get_tree().current_scene.get_children():
-        if node.is_class("RigidBody2D"):
-            var xp = level_to_value(node.lvl)
-            node.queue_free()
-            total_score += xp
+        if node is Ball:
+            node.move_to_location(xp_collider.global_position)
     
     Globals.update_xp(total_score)
 
@@ -71,9 +72,22 @@ func clear_all_balls():
 func _on_xp_change():
     xp_amount.text = str(Globals.xp)
     xp_bar.value = Globals.xp
-    
-        
 
 
 func _on_debug_end_game_pressed() -> void:
     clear_all_balls()
+
+
+func _on_xp_collider_body_entered(body: Node2D) -> void:
+    
+    print(body)
+    print(body is Ball)
+    if body is Ball:
+        Globals.update_xp(level_to_value(body.lvl))
+        body.queue_free()
+    
+        
+
+
+func _on_xp_bar_value_changed(value: float) -> void:
+    pass # Replace with function body.

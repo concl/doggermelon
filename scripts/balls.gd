@@ -1,10 +1,12 @@
 extends RigidBody2D
 
+class_name Ball
 const BALL_CLASS = preload("res://scenes/balls.tscn")
 
 var lvl = 0
 var merged = false
 var can_drop = false
+var holding = false
 
 
 var spawn_probabilities : Dictionary = {
@@ -40,6 +42,9 @@ var sprite_levels = {
     7: preload("res://assets/balls/purpleball.png")
 }
 
+func level_to_value(level) -> int:
+    return 2**(level+1)
+
 func get_scalar(level) -> Vector2:
     var starter = 0.01
     var diff = 0.01
@@ -67,8 +72,6 @@ func choose_level_by_probability(prob_table: Dictionary) -> int:
             return level
     return prob_table.keys().back() # fallback
 
-func setup(level):
-    lvl = level
 
 func spawn(stage: int) -> void:
     var prob_table : Dictionary = spawn_probabilities[stage]
@@ -122,9 +125,21 @@ func merge(other):
     other.queue_free()
     queue_free()
 
+
+func move_to_location(location: Vector2):
+    var tween = create_tween()
+    tween.tween_property(self, "global_position", location, 1.0)
+    tween.connect("finished", remove)
+    freeze_ball(true)
+    
+
+func remove():
+    Globals.update_xp(level_to_value(lvl))
+    queue_free()
+
 func spawn_merged_ball(location: Vector2):
     var new_ball = BALL_CLASS.instantiate()
-    new_ball.setup(lvl+1)
+    new_ball.lvl = lvl + 1
     get_tree().current_scene.add_child(new_ball)
     new_ball.global_position = location
 
