@@ -1,11 +1,9 @@
 extends RigidBody2D
 
-
-
 const BALL_CLASS = preload("res://scenes/balls.tscn")
 
-
-@onready var sprite = $Sprite2D
+var lvl = 0
+var merged = false
 
 var sprite_levels = {
     0: preload("res://assets/redball.png"),
@@ -24,26 +22,48 @@ func get_scalar(level) -> Vector2:
     var new_scale = level*diff + starter
     return Vector2(new_scale,new_scale)
 
-var lvl = 0
+
+func freeze_ball(value: bool):
+    freeze = value
+    if freeze:
+        collision_layer = 0
+        collision_mask = 0
+    else:
+        collision_layer = 1
+        collision_mask = 1
+
 
 func setup(level):
     lvl = level
 
 func _ready() -> void:
-    sprite.texture = sprite_levels[lvl]
-    sprite.scale = get_scalar(lvl)
-    $CollisionShape2D.scale = sprite.scale
-    global_position = Vector2(get_viewport().size.x/2, 0)
+    $Sprite2D.texture = sprite_levels[lvl]
+    $Sprite2D.scale = get_scalar(lvl)
+    $CollisionShape2D.scale = $Sprite2D.scale
+    $Area2D/CollisionShape2D.scale = $Sprite2D.scale
+    #global_position = Vector2(get_viewport().size.x/2, 0)
 
-
+    
+func _on_area_2d_area_entered(area: Area2D) -> void:
+    var other = area.get_parent()
+    if other == null || freeze || other.freeze || other.lvl != lvl:
+        return
+    if merged || other.merged:
+        return
+    merge(other)
 
 func merge(other):
+    merged = true
+    other.merged = true
+
+    var avg_position = (global_position + other.global_position) / 2
+    spawn_merged_ball(avg_position)
+    
+    other.queue_free()
+    queue_free()
+
+func spawn_merged_ball(location: Vector2):
     var new_ball = BALL_CLASS.instantiate()
     new_ball.setup(lvl+1)
     get_tree().current_scene.add_child(new_ball)
-    new_ball.global_position.y = global_position.y - 100
-    #queue_free()
-
-func _on_area_2d_mouse_entered() -> void:
-    if lvl<7:
-        merge(null)
+    new_ball.global_position = location
