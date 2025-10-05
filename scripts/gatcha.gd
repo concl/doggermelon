@@ -14,7 +14,6 @@ func _on_button_pressed() -> void:
     
 
 func _ready():
-    print(MAIN)
     get_collectible()
 
 func _process(delta: float) -> void:

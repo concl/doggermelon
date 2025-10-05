@@ -164,6 +164,7 @@ func merge(other):
     tween.tween_property(other, "global_position", avg_position, 0.12)
 
     # --- Spawn new ball just after they meet ---
+    print("asdf")
     tween.connect("finished", Callable(self, "_on_merge_tween_finished").bind(other, avg_position))
 
 
@@ -183,4 +184,7 @@ func spawn_merged_ball(location: Vector2):
     new_ball.lvl = lvl + 1
     get_parent().add_child(new_ball)
     new_ball.global_position = location
+    print("spawned")
+    print(new_ball)
+    print(new_ball.global_position)
     return new_ball

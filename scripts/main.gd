@@ -64,14 +64,14 @@ func level_to_value(level) -> int:
 
 func calculate_score() -> int:
     var score = 0
-    for node in get_tree().current_scene.get_children():
+    for node in game.get_children():
         if node is RigidBody2D && not node.freeze:
             score += level_to_value(node.lvl)
     return score
 
 func clear_all_balls():
     var total_score = 0
-    for node in get_tree().current_scene.get_children():
+    for node in game.get_children():
         if node is Ball && not node.freeze:
             node.move_to_location(xp_label.global_position)
     
@@ -79,7 +79,7 @@ func clear_all_balls():
 
 func merge_all_balls():
     var all_balls: Dictionary={}
-    for node in get_tree().current_scene.get_children():
+    for node in game.get_children():
         if node.is_class("RigidBody2D") && not node.freeze && node.lvl != 10:
             var level = node.lvl
             if not all_balls.has(level):
@@ -92,8 +92,6 @@ func merge_all_balls():
             var ball_a = balls_in_level.pop_back()
             var ball_b = balls_in_level.pop_back()
             var new_ball = ball_a.merge(ball_b)
-            ball_a.queue_free()
-            ball_b.queue_free()
             
 func _on_xp_change():
     xp_amount.text = str(Globals.xp)
@@ -106,14 +104,6 @@ func _on_debug_end_game_pressed() -> void:
 func _on_debug_merge_all_pressed() -> void:
     merge_all_balls()
 
-func _on_xp_collider_body_entered(body: Node2D) -> void:
-    
-    print(body)
-    print(body is Ball)
-    if body is Ball:
-        Globals.update_xp(level_to_value(body.lvl))
-        body.queue_free()
-    
         
 
 func _on_xp_bar_value_changed(value: float) -> void:
