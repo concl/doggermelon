@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx56m1pmx3bcn"
-path="res://.godot/imported/ball_dane.png-b0f14642bc70d3569c208887e2323af3.ctex"
+uid="uid://xv6ks7mbg2bl"
+path="res://.godot/imported/ball_poodle_rsz.png-80685ef30e0bd12aadca726ec86e034b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/balls_dogs/ball_dane.png"
-dest_files=["res://.godot/imported/ball_dane.png-b0f14642bc70d3569c208887e2323af3.ctex"]
+source_file="res://assets/balls_dogs/ball_poodle_rsz.png"
+dest_files=["res://.godot/imported/ball_poodle_rsz.png-80685ef30e0bd12aadca726ec86e034b.ctex"]
 
 [params]
 

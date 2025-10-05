@@ -31,21 +31,21 @@ var spawn_probabilities : Dictionary = {
     }
 }
 
-var sprite_levels_dog = {
-    0: preload("res://assets/balls_dogs/ball_pomeranian.png"),
-    1: preload("res://assets/balls_dogs/ball_greyhound.png"),
-    2: preload("res://assets/balls_dogs/ball_pug.png"),
-    3: preload("res://assets/balls_dogs/ball_dachshund.png"),
-    4: preload("res://assets/balls_dogs/ball_shiba.png"),
-    5: preload("res://assets/balls_dogs/ball_poodle.png"),
-    6: preload("res://assets/balls_dogs/ball_golden.png"),
-    7: preload("res://assets/balls_dogs/ball_dane.png"),
-    8: preload("res://assets/balls_dogs/ball_bernard.png"),
-    9: preload("res://assets/balls_dogs/ball_clifford.png"),
-    10: preload("res://assets/balls_dogs/ball_cat.png")
+var sprite_levels = {
+    0: preload("res://assets/balls_dogs/ball_pomeranian_rsz.png"),
+    1: preload("res://assets/balls_dogs/ball_greyhound_rsz.png"),
+    2: preload("res://assets/balls_dogs/ball_pug_rsz.png"),
+    3: preload("res://assets/balls_dogs/ball_dachshund_rsz.png"),
+    4: preload("res://assets/balls_dogs/ball_shiba_rsz.png"),
+    5: preload("res://assets/balls_dogs/ball_poodle_rsz.png"),
+    6: preload("res://assets/balls_dogs/ball_golden_rsz.png"),
+    7: preload("res://assets/balls_dogs/ball_dane_rsz.png"),
+    8: preload("res://assets/balls_dogs/ball_bernard_rsz.png"),
+    9: preload("res://assets/balls_dogs/ball_clifford_rsz.png"),
+    10: preload("res://assets/balls_dogs/ball_cat_rsz.png")
 }
 
-var sprite_levels = {
+var sprite_levels_default = {
     0: preload("res://assets/balls_default/redball.png"),
     1: preload("res://assets/balls_default/orangeball.png"),
     2: preload("res://assets/balls_default/yellowball.png"),
@@ -60,7 +60,7 @@ func level_to_value(level) -> int:
     return 2**(level+1)
 
 func get_scalar(level) -> Vector2:
-    var starter = 0.01
+    var starter = 0.04
     var diff = 0.01
     var new_scale = level*diff + starter
     return Vector2(new_scale,new_scale)

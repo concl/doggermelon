@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwwlychsx0reh"
-path="res://.godot/imported/ball_greyhound.png-72b379e14b3a0a29d61b10d38429c093.ctex"
+uid="uid://bsk1a4hxsu4os"
+path="res://.godot/imported/ball_dachshund_rsz.png-7fdfb917a8548a6b1dc8bedb24b1f4fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/balls_dogs/ball_greyhound.png"
-dest_files=["res://.godot/imported/ball_greyhound.png-72b379e14b3a0a29d61b10d38429c093.ctex"]
+source_file="res://assets/balls_dogs/ball_dachshund_rsz.png"
+dest_files=["res://.godot/imported/ball_dachshund_rsz.png-7fdfb917a8548a6b1dc8bedb24b1f4fe.ctex"]
 
 [params]
 

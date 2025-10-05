@@ -40,10 +40,12 @@ func _process(_delta):
     
     var score = calculate_score()
     score_label.text = "Score: " + str(score)
+    
     if score > 50 && score < 200:
         gamestage = 1
     if score > 200:
-        gamestage = 0
+        gamestage = 2
+    
 
 func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("drop_ball") and current_ball and current_ball.can_drop == true:

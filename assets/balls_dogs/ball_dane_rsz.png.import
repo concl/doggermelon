@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uabnovgxbckf"
-path="res://.godot/imported/ball_pomeranian.png-41bdd74995d193c2ac5b29113637dfb7.ctex"
+uid="uid://dy1473jucsdil"
+path="res://.godot/imported/ball_dane_rsz.png-7f29fe3a37857d23ef2597279f3f2782.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/balls_dogs/ball_pomeranian.png"
-dest_files=["res://.godot/imported/ball_pomeranian.png-41bdd74995d193c2ac5b29113637dfb7.ctex"]
+source_file="res://assets/balls_dogs/ball_dane_rsz.png"
+dest_files=["res://.godot/imported/ball_dane_rsz.png-7f29fe3a37857d23ef2597279f3f2782.ctex"]
 
 [params]
 

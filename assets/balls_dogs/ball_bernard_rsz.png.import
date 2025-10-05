@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceug3g0232of"
-path="res://.godot/imported/ball_bernard.png-85cad032952a00b8e69364cab010953e.ctex"
+uid="uid://dklfewof1c4fo"
+path="res://.godot/imported/ball_bernard_rsz.png-8c2d8852cd512514aa5a12b0a590f74d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/balls_dogs/ball_bernard.png"
-dest_files=["res://.godot/imported/ball_bernard.png-85cad032952a00b8e69364cab010953e.ctex"]
+source_file="res://assets/balls_dogs/ball_bernard_rsz.png"
+dest_files=["res://.godot/imported/ball_bernard_rsz.png-8c2d8852cd512514aa5a12b0a590f74d.ctex"]
 
 [params]
 

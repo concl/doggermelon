@@ -139,6 +139,10 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="XPCollider"]
 shape = SubResource("RectangleShape2D_sugp2")
 
+[node name="test_gamestage" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="value_changed" from="CanvasLayer/UI/VBoxContainer/XPBox/XPBar" to="." method="_on_xp_bar_value_changed"]
 [connection signal="pressed" from="CanvasLayer/UI/debug_end_game" to="." method="_on_debug_end_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/debug_merge_all" to="." method="_on_debug_merge_all_pressed"]

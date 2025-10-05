@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx1glkdhsont0"
-path="res://.godot/imported/ball_pug.png-8bbd3e37b1c452c79d6b21d469cf7c8c.ctex"
+uid="uid://doswt67ar32ya"
+path="res://.godot/imported/ball_shiba_rsz.png-6aa51c3153923f9ecdd8fd9793e7092b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/balls_dogs/ball_pug.png"
-dest_files=["res://.godot/imported/ball_pug.png-8bbd3e37b1c452c79d6b21d469cf7c8c.ctex"]
+source_file="res://assets/balls_dogs/ball_shiba_rsz.png"
+dest_files=["res://.godot/imported/ball_shiba_rsz.png-6aa51c3153923f9ecdd8fd9793e7092b.ctex"]
 
 [params]
 
