@@ -130,10 +130,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5637283, 5.5301237, 8.95789
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8810606, 5.5301237, 2.8606377)
 
 [node name="Skeleton3D" parent="lucy/Armature" index="0"]
-bones/0/position = Vector3(-1.4816614, 0.4873361, 0.38973007)
-bones/6/rotation = Quaternion(0.9993487, 0.026803661, 0.00095302856, 0.024146877)
-bones/10/position = Vector3(0.06277184, 0.62460214, -3.6060574)
-bones/16/rotation = Quaternion(0.9993487, -0.02680366, -0.00095302844, 0.024146875)
+bones/0/position = Vector3(1.4873523, 0.52132094, 0.25399405)
+bones/6/rotation = Quaternion(0.9993486, 0.026803657, 0.0009530284, 0.024146874)
+bones/10/position = Vector3(0.07275373, 0.5837653, -3.571335)
+bones/16/rotation = Quaternion(0.9993486, -0.026803657, -0.0009530284, 0.024146872)
 
 [node name="AnimationPlayer" parent="lucy" index="1"]
 autoplay = "ArmatureAction"
