@@ -25,6 +25,7 @@ func activate():
     chest.show()
     animation_player.play("top_drop") 
     animation_player_bottom.play("drop") 
+    get_collectible()
 
 func _ready():
     get_collectible()

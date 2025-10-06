@@ -37,7 +37,7 @@ gradient = SubResource("Gradient_choun")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ld40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
-size = Vector2(500, 300)
+size = Vector2(900, 600)
 
 [sub_resource type="Animation" id="Animation_tipki"]
 resource_name = "hit"
