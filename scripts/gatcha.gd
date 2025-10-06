@@ -9,23 +9,23 @@ const COLLECTIBLE = preload("res://scenes/collectible.tscn")
 
 var rewards = []
 
-    
+	
 
 func _ready():
-    get_collectible()
+	get_collectible()
 
 func _process(delta: float) -> void:
-    if not visible:
-        canvas_layer_2.hide()
-        canvas_layer.hide()
-        
-    else:
-        canvas_layer.show()
-        canvas_layer_2.show()
+	if not visible:
+		canvas_layer_2.hide()
+		canvas_layer.hide()
+		
+	else:
+		canvas_layer.show()
+		canvas_layer_2.show()
 
 
 func get_collectible():
-    
-    var collectible = COLLECTIBLE.instantiate()
-    node_2d.add_child(collectible)
-    
+	
+	var collectible = COLLECTIBLE.instantiate()
+	node_2d.add_child(collectible)
+	

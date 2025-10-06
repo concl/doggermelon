@@ -158,6 +158,14 @@ offset_right = 201.0
 offset_bottom = 634.0
 text = "MERGE ALL"
 
+[node name="half_clear" type="Button" parent="Game/UI"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 612.0
+offset_right = 367.0
+offset_bottom = 643.0
+text = "half_clear (on trigger)"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Game/UI"]
 layout_mode = 0
 offset_left = 1069.0
@@ -221,5 +229,6 @@ mesh = SubResource("BoxMesh_tefeu")
 [connection signal="value_changed" from="Game/UI/VBoxContainer/XPBox/XPBar" to="." method="_on_xp_bar_value_changed"]
 [connection signal="pressed" from="Game/UI/debug_end_game" to="." method="_on_debug_end_game_pressed"]
 [connection signal="pressed" from="Game/UI/debug_merge_all" to="." method="_on_debug_merge_all_pressed"]
+[connection signal="pressed" from="Game/UI/half_clear" to="." method="_on_half_clear_pressed"]
 [connection signal="pressed" from="Game/UI/HBoxContainer/ChestButton" to="." method="_on_chest_button_pressed"]
 [connection signal="pressed" from="Gatcha/CanvasLayer/UI/Button" to="Gatcha" method="_on_button_pressed"]
