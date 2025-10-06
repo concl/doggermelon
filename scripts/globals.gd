@@ -17,12 +17,11 @@ var xp_label_pos = null
 
 var collectibles = {
 	# active:
-		# AUTOMERGER
-	"automerger": 0,
+	1: 0, # automereger
 	
 	# passive:
-		# THRESHOLD 1UP
-	"thresholdup": 0,
+	2: 0, # threshold 1up
+	
 }	
 
 var trophy_level = 3 # 4, 5, 6, 7, 8

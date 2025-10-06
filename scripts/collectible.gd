@@ -7,23 +7,23 @@ extends Node2D
 var y_level = 260
 var shelf_positions = {
 	1: Vector2(125, y_level), # sitting dog
-	2: Vector2(280, y_level)
+	2: Vector2(280, y_level) # down dog
 }
 
 var collectible_skins = {
 	1: preload("res://assets/collectible_figures/Sitting_dog.png"),
-	2: null
+	2: preload("res://assets/collectible_figures/Down_dog.png")
 }
 
 var shelf_pos = null
 var moved = false
 
 func setup(spawnpoint, id):
-	id = 1
+	
 	shelf_pos = shelf_positions[id]
 	$Sprite2D.texture = collectible_skins[id]
 	$Sprite2D.scale = Vector2(0.1,0.1)
-	#$Area2D/CollisionShape2D.scale = $Sprite2D.scale
+	$Area2D.scale = $Sprite2D.scale
 	global_position = spawnpoint
 	
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
