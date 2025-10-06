@@ -91,7 +91,6 @@ func calculate_score() -> int:
 	return score
 
 func clear_all_balls():
-	var total_score = 0
 	for node in game.get_children():
 		if node is Ball && not node.freeze:
 			node.collect_to_xp()

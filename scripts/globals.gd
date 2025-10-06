@@ -5,7 +5,9 @@ enum GameStage { EARLY, MID, LATE }
 signal xp_changed
 signal gain_chest
 
-signal clear_all_balls
+signal delete_next_ball
+
+
 
 var collecting = 0
 var xp: int = 0

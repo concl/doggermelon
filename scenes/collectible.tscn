@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b1raf6v4657bs"]
 
 [ext_resource type="Script" uid="uid://drjplsye5dpay" path="res://scripts/collectible.gd" id="1_1pg6c"]
-[ext_resource type="Texture2D" uid="uid://blc8dlmhihjvj" path="res://assets/collectible_figures/Sitting_dog.png" id="2_1pg6c"]
+[ext_resource type="Texture2D" uid="uid://dhlxmea4ivkxp" path="res://assets/collectible_figures/Down_dog.png" id="2_1pg6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1pg6c"]
 size = Vector2(538, 856.5)
@@ -30,7 +30,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_1pg6c"]
@@ -77,12 +77,12 @@ position = Vector2(56, -13.25)
 shape = SubResource("RectangleShape2D_1pg6c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
 texture = ExtResource("2_1pg6c")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ga2k0")
 }
+autoplay = "RESET"
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
