@@ -25,6 +25,8 @@ var collectibles = {
 	
 }	
 
+signal powerup_used(id)
+
 var trophy_level = 3 # 4, 5, 6, 7, 8
 
 func update_xp(added):

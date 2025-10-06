@@ -13,7 +13,6 @@ const BALL_CLASS = preload("res://scenes/balls.tscn")
 
 @onready var bucket_sprite = $Game/Bucket/Sprite2D
 
-
 var current_ball: RigidBody2D = null
 var gamestage = 0
 
@@ -24,6 +23,7 @@ func _ready():
 	Globals.xp_changed.connect(_on_xp_change)
 	Globals.xp_label_pos = xp_label.global_position
 	Globals.gain_chest.connect(_handle_chests)
+	Globals.powerup_used.connect(_powerup_used)
 	
 
 func spawn_new_ball():
@@ -169,6 +169,18 @@ func _handle_chests():
 	xp_level.text = str(Globals.level)
 	
 
-
 func _on_debug_delete_mode_pressed() -> void:
 	active_delete_mode = true
+
+func _powerup_used(id: int) -> void:
+	var uses : Vector2 = Globals.collectibles[id]
+	
+	if uses.y == 0:
+		return
+	else:
+		uses.y -= 1;
+	match id:
+		1:
+			merge_all_balls()
+		2:
+			threshold_clear()
