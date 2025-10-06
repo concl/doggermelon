@@ -31,6 +31,7 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 		return
 	# move to shelf on click
 	if event.is_action_pressed("click"):
+		print("clicked")
 		var tween = create_tween()
 		tween.tween_property(self, "global_position", shelf_pos, 0.5)
 		moved = true
