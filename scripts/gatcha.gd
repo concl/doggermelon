@@ -18,64 +18,64 @@ var rewards = []
 var item = null
 
 func activate():
-    show()
-    item.hide()
-    back.hide()
-    chest_hp = 5
-    chest.show()
-    animation_player.play("top_drop") 
-    animation_player_bottom.play("drop") 
-    get_collectible()
+	show()
+	item.hide()
+	back.hide()
+	chest_hp = 5
+	chest.show()
+	animation_player.play("top_drop") 
+	animation_player_bottom.play("drop") 
+	get_collectible()
 
 func _ready():
-    get_collectible()
+	get_collectible()
 
 func _process(delta: float) -> void:
-    if not visible:
-        canvas_layer_2.hide()
-        canvas_layer.hide()
-        
-    else:
-        canvas_layer.show()
-        canvas_layer_2.show()
+	if not visible:
+		canvas_layer_2.hide()
+		canvas_layer.hide()
+		
+	else:
+		canvas_layer.show()
+		canvas_layer_2.show()
 
 
 func get_collectible():
-    var screen_size = get_viewport().get_visible_rect().size
-    var collectible = COLLECTIBLE.instantiate()
-    node_2d.add_child(collectible)
-    collectible.setup(screen_size / 2, randi_range(1,2))
-    collectible.sprite.scale = Vector2(1,1)
-    collectible.area_2d.hide()
-    print(collectible.shelf_pos)
-    
-    collectible.hide()
-    collectible.sprite.modulate = 0
-    item = collectible
+	var screen_size = get_viewport().get_visible_rect().size
+	var collectible = COLLECTIBLE.instantiate()
+	node_2d.add_child(collectible)
+	collectible.setup(screen_size / 2, randi_range(1,2))
+	collectible.sprite.scale = Vector2(1,1)
+	collectible.area_2d.hide()
+	print(collectible.shelf_pos)
+	
+	collectible.hide()
+	collectible.sprite.modulate = 0
+	item = collectible
   
 func break_chest():
-    animation_player.play("top explode")
-    animation_player_bottom.play("bottom_explode")
-    item.fade_in()
-    item.show()
-    
+	animation_player.play("top explode")
+	animation_player_bottom.play("bottom_explode")
+	item.fade_in()
+	item.show()
+	
   
 func hit_chest():
-    animation_player.play("hit")
-    animation_player_bottom.play("bottom_hit")
-    chest_hp -= 1
-    if chest_hp == 0:
-        break_chest()
+	animation_player.play("hit")
+	animation_player_bottom.play("bottom_hit")
+	chest_hp -= 1
+	if chest_hp == 0:
+		break_chest()
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-    
-    if visible:
-        if event.is_action_pressed("click") and chest_hp > 0:
-            hit_chest()
-            
+	
+	if visible:
+		if event.is_action_pressed("click") and chest_hp > 0:
+			hit_chest()
+			
 
 
 func _on_animation_player_bottom_animation_finished(anim_name: StringName) -> void:
-    if anim_name == "bottom_explode":
-        chest.hide()
-        back.show()
+	if anim_name == "bottom_explode":
+		chest.hide()
+		back.show()

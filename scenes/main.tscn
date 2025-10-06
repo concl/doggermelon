@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c5tb5ugocspd1" path="res://assets/Furniture/Trophy_case.png" id="3_tipki"]
 [ext_resource type="Texture2D" uid="uid://jfup6xdcf0ee" path="res://assets/signs/sign_bernard.png" id="5_jkv2x"]
 [ext_resource type="Script" uid="uid://dsd2hbvx0jvh2" path="res://scripts/gatcha.gd" id="5_tbgi4"]
-[ext_resource type="Script" uid="uid://dyxa2b17aedlm" path="res://scripts/check_mouse.gd" id="6_choun"]
+[ext_resource type="Script" path="res://scripts/check_mouse.gd" id="6_choun"]
 [ext_resource type="Texture2D" uid="uid://b7f6sjqr45uxw" path="res://assets/signs/sign_dane.png" id="6_jbj1t"]
 [ext_resource type="Script" uid="uid://d0vn0jkk7awv7" path="res://scripts/chest.gd" id="6_tefeu"]
 [ext_resource type="Texture2D" uid="uid://bvj8j01ikqro2" path="res://assets/chest_button.png" id="7_choun"]
@@ -243,7 +243,7 @@ mouse_filter = 2
 texture = ExtResource("2_o6xl0")
 
 [node name="Ceiling" type="Area2D" parent="Game"]
-position = Vector2(1469, 292)
+position = Vector2(1490, 455)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Ceiling"]
 position = Vector2(50, -4)
@@ -255,15 +255,20 @@ scale = Vector2(543.9999, 6.5)
 texture = SubResource("CanvasTexture_tefeu")
 
 [node name="Shelf2" type="Sprite2D" parent="Game"]
-position = Vector2(570, 510)
+position = Vector2(609, 687)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_85g3d")
 
 [node name="Trophy_cases" type="Node2D" parent="Game"]
-position = Vector2(-12, 83)
+position = Vector2(-12, 233)
 
 [node name="Trophy_case" type="Sprite2D" parent="Game/Trophy_cases"]
 position = Vector2(204.50003, 716.25)
+scale = Vector2(0.23472224, 0.2472222)
+texture = ExtResource("3_tipki")
+
+[node name="Trophy_case_2" type="Sprite2D" parent="Game/Trophy_cases"]
+position = Vector2(442.00003, 716.00006)
 scale = Vector2(0.23472224, 0.2472222)
 texture = ExtResource("3_tipki")
 
@@ -277,18 +282,13 @@ position = Vector2(915.00006, 716)
 scale = Vector2(0.23472224, 0.2472222)
 texture = ExtResource("3_tipki")
 
-[node name="Trophy_case_2" type="Sprite2D" parent="Game/Trophy_cases"]
-position = Vector2(442.00003, 716.00006)
-scale = Vector2(0.23472224, 0.2472222)
-texture = ExtResource("3_tipki")
-
 [node name="Trophy_case_5" type="Sprite2D" parent="Game/Trophy_cases"]
 position = Vector2(1149, 716.00006)
 scale = Vector2(0.23472223, 0.2472222)
 texture = ExtResource("3_tipki")
 
 [node name="Bucket" type="StaticBody2D" parent="Game"]
-position = Vector2(1439, 596)
+position = Vector2(1462, 757)
 scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Game/Bucket"]
@@ -385,14 +385,12 @@ text = "1"
 
 [node name="debug_end_game" type="Button" parent="Game/UI"]
 layout_mode = 0
-offset_left = 1667.0
-offset_top = -27.85756
-offset_right = 3915.0
-offset_bottom = 1600.1425
-scale = Vector2(0.1, 0.1)
+offset_left = 1304.9999
+offset_top = 19.89827
+offset_right = 3553.0
+offset_bottom = 1647.8983
+scale = Vector2(0.20253725, 0.20253725)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0ld40")
-text = "eng game
-"
 icon = ExtResource("10_dp3eg")
 
 [node name="debug_merge_all" type="Button" parent="Game/UI"]
@@ -428,6 +426,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Signs" type="Node2D" parent="Game"]
+position = Vector2(0, 150)
 
 [node name="SignBernard" type="Sprite2D" parent="Game/Signs"]
 position = Vector2(1082, 795.00006)
