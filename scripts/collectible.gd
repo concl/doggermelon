@@ -35,18 +35,20 @@ func setup(spawnpoint, id):
 	global_position = spawnpoint
 	
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
-	if moved:
-		return
 	# move to shelf on click
 	if event.is_action_pressed("click"):
+		print("clicked")
 		if !onShelf:
-			print("clicked")
+			onShelf = true
 			var tween = create_tween()
 			tween.tween_property(self, "global_position", shelf_pos, 0.5)
-			moved = true
 			Globals.collecting -= 1
+			await tween.finished
+			if Globals.collectibles_on_shelf[currentID]:
+				queue_free()
+			else:
+				Globals.collectibles_on_shelf[currentID] = true
 		else:
-			print("click on shelf")
 			if !isPassive:
 				Globals.emit_signal("powerup_used", currentID)
 			

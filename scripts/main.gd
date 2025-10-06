@@ -18,13 +18,18 @@ var gamestage = 0
 
 var active_delete_mode = false
 
+var mouse_over_bucket = false
+
 func _ready():
-	spawn_new_ball()
 	Globals.xp_changed.connect(_on_xp_change)
 	Globals.xp_label_pos = xp_label.global_position
 	Globals.gain_chest.connect(_handle_chests)
 	Globals.powerup_used.connect(_powerup_used)
-	
+	Globals.connect("mouse_over_bucket", Callable(self, "_toggle_mouse_bucket"))
+	spawn_new_ball()
+
+func _toggle_mouse_bucket(state):
+	mouse_over_bucket = state
 
 func spawn_new_ball():
 	if current_ball:
@@ -75,10 +80,11 @@ func check_ceiling_balls() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if game.visible and event.is_action_pressed("click") and current_ball and current_ball.can_drop and Globals.collecting==0:
-		current_ball.freeze_ball(false)
-		current_ball.holding = false
-		current_ball = null
-		spawn_new_ball()
+		if mouse_over_bucket:
+			current_ball.freeze_ball(false)
+			current_ball.holding = false
+			current_ball = null
+			spawn_new_ball()
 
 func level_to_value(level) -> int:
 	return 2**(level+1)
@@ -97,6 +103,7 @@ func clear_all_balls():
 	
 
 func merge_all_balls():
+	print("merging all balls")
 	var all_balls: Dictionary={}
 	for node in game.get_children():
 		if node.is_class("RigidBody2D") && not node.freeze && node.lvl != 10:

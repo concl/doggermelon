@@ -7,7 +7,9 @@ signal gain_chest
 
 signal delete_next_ball
 
+signal powerup_used(id)
 
+signal mouse_over_bucket(state: bool)
 
 var collecting = 0
 var xp: int = 0
@@ -25,9 +27,12 @@ var collectibles = {
 	# passive:
 	2: Vector2(0,0), # threshold 1up
 	
-}	
+}
 
-signal powerup_used(id)
+var collectibles_on_shelf = {
+	1: false,
+	2: false
+}
 
 var trophy_level = 3 # 4, 5, 6, 7, 8
 
