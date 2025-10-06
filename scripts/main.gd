@@ -13,17 +13,6 @@ const BALL_CLASS = preload("res://scenes/balls.tscn")
 var current_ball: RigidBody2D = null
 var gamestage = 0
 
-var level_collectibles_default = {
-	4: preload("res://assets/balls_default/redball.png"),		# shiba
-	5: preload("res://assets/balls_default/orangeball.png"),	# poodle
-	6: preload("res://assets/balls_default/yellowball.png"),	# golden
-	7: preload("res://assets/balls_default/ygreenball.png"),	# dane
-	8: preload("res://assets/balls_default/greenball.png"),	# bernard
-	#5: preload("res://assets/balls_default/lblueball.png"),
-	#6: preload("res://assets/balls_default/dblueball.png"),
-	#7: preload("res://assets/balls_default/purpleball.png")
-}
-
 
 func _ready():
 	spawn_new_ball()
@@ -81,7 +70,7 @@ func check_ceiling_balls() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	
 	
-	if game.visible and event.is_action_pressed("drop_ball") and current_ball and current_ball.can_drop == true:
+	if game.visible and event.is_action_pressed("click") and current_ball and current_ball.can_drop == true:
 		current_ball.freeze_ball(false)
 		current_ball.holding = false
 		current_ball = null
@@ -101,7 +90,7 @@ func clear_all_balls():
 	var total_score = 0
 	for node in game.get_children():
 		if node is Ball && not node.freeze:
-			node.move_to_location()
+			node.collect_to_xp()
 	
 	Globals.update_xp(total_score)
 
@@ -128,12 +117,12 @@ func threshold_clear():
 		if node.is_class("RigidBody2D") && not node.freeze:
 			if node.lvl > max_lvl:
 				max_lvl = node.lvl
-		
+
 	var threshold = int(max_lvl/2)
 	for node in game.get_children():
 		if node.is_class("RigidBody2D") && not node.freeze:
 			if node.lvl < threshold:
-				node.move_to_location()
+				node.collect_to_xp()
 	
 
 

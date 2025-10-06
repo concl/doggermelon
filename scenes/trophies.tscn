@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdwc7pueuliuj"]
+
+[ext_resource type="Script" uid="uid://blu551wj3mxpb" path="res://scenes/trophies.gd" id="1_ile6p"]
+[ext_resource type="Texture2D" uid="uid://puhp5hw8uiee" path="res://assets/balls_default/redball.png" id="1_wtnpw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ile6p"]
+size = Vector2(1501, 1501)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ile6p")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_ile6p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wtnpw")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

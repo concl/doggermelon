@@ -1,6 +1,6 @@
 extends Node3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var start_button: Button = $MenuUI/PanelContainer/StartButton
+@onready var start_button: Button = $MenuUI/Main/VBoxContainer/StartButton
 const MAIN = preload("res://scenes/main.tscn")
 
 

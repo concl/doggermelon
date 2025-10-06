@@ -2,11 +2,15 @@ extends RigidBody2D
 
 class_name Ball
 const BALL_CLASS = preload("res://scenes/balls.tscn")
+const TROPHY_SCENE = preload("res://scenes/trophies.tscn")
+
+#@onready var sprite = $Sprite2D
 
 var lvl = 0
 var merged = false
 var can_drop = false
 var holding = false
+var waiting_for_pickup = false
 
 
 var spawn_probabilities : Dictionary = {
@@ -93,10 +97,9 @@ func spawn(stage: int) -> void:
 	
 	lvl = clamp(lvl, 0, sprite_levels.size() - 1)
 	
-	# Update visuals
 	$Sprite2D.texture = sprite_levels[lvl]
 	$Sprite2D.scale = get_scalar(lvl)
-	$CollisionShape2D.scale = $Sprite2D.scale
+	#$CollisionShape2D.scale = sprite.scale
 	$Area2D/CollisionShape2D.scale = $Sprite2D.scale
 	
 	play_grow_animation()
@@ -132,7 +135,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	merge(other)
 
 func _on_merge_tween_finished(other, spawn_position: Vector2):
-	var new_ball = spawn_merged_ball(spawn_position)
+	create_ball(spawn_position)
 	
 	# Clean up old ones immediately after spawning
 	other.queue_free()
@@ -170,7 +173,13 @@ func merge(other):
 	tween.connect("finished", Callable(self, "_on_merge_tween_finished").bind(other, avg_position))
 
 
-func move_to_location(location = Globals.xp_label_pos):
+func collect_to_xp(location = Globals.xp_label_pos):
+	var randomizer = 0
+	if randomizer < 0.2:
+		var new_ball = create_ball(global_position, lvl)
+		new_ball.freeze_ball(true)
+		new_ball.generate_pickup()
+	
 	freeze_ball(true)
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", location, 1.0)
@@ -180,12 +189,29 @@ func remove():
 	Globals.update_xp(level_to_value(lvl))
 	queue_free()
 
-func spawn_merged_ball(location: Vector2):
+func create_ball(location: Vector2, ball_level: int = lvl+1): # previously spawn_merged_ball
 	var new_ball = BALL_CLASS.instantiate()
-	new_ball.lvl = lvl + 1
+	new_ball.lvl = ball_level
 	get_parent().add_child(new_ball)
 	new_ball.global_position = location
-	print("spawned")
-	print(new_ball)
-	print(new_ball.global_position)
+	#print("spawned")
+	#print(new_ball)
+	#print(new_ball.global_position)
 	return new_ball
+
+func generate_pickup():
+	# 50% drop 
+	waiting_for_pickup = true
+	# always drop trophy
+
+func drop_trophy(level):
+	var trophy = TROPHY_SCENE.instantiate()
+	get_tree().current_scene.game.add_child(trophy)
+	trophy.setup(global_position, level)
+
+func _on_area_2d_mouse_entered() -> void:
+	if waiting_for_pickup == true:
+		drop_trophy(lvl)
+		queue_free()
+		
+	

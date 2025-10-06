@@ -58,7 +58,7 @@ func hit_chest():
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	
 	if visible:
-		if event.is_action_pressed("drop_ball") and chest_hp > 0:
+		if event.is_action_pressed("click") and chest_hp > 0:
 			hit_chest()
 			
 
