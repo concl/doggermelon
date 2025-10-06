@@ -168,16 +168,13 @@ func merge(other):
 	tween.tween_property(self, "global_position", avg_position, 0.12)
 	tween.tween_property(other, "global_position", avg_position, 0.12)
 
-	# --- Spawn new ball just after they meet ---
-	print("asdf")
 	tween.connect("finished", Callable(self, "_on_merge_tween_finished").bind(other, avg_position))
 
 
 func collect_to_xp(location = Globals.xp_label_pos):
 	var randomizer = 0
 	if randomizer < 0.2:
-		if not Globals.collecting:
-			Globals.collecting = true
+		Globals.collecting += 1
 		var new_ball = create_ball(global_position, lvl)
 		new_ball.freeze_ball(true)
 		new_ball.generate_pickup()
@@ -206,14 +203,15 @@ func generate_pickup():
 	waiting_for_pickup = true
 	# always drop trophy
 
+func _on_area_2d_mouse_entered() -> void:
+	if waiting_for_pickup == true:
+		drop_trophy(lvl)
+		queue_free()
+
 func drop_trophy(level):
 	var trophy = TROPHY_SCENE.instantiate()
 	get_tree().current_scene.game.add_child(trophy)
 	trophy.setup(global_position, level)
 
-func _on_area_2d_mouse_entered() -> void:
-	if waiting_for_pickup == true:
-		drop_trophy(lvl)
-		queue_free()
 		
 	

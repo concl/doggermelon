@@ -1,9 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://dx6bicmwfxw14"]
+[gd_scene load_steps=30 format=3 uid="uid://dx6bicmwfxw14"]
 
 [ext_resource type="Script" uid="uid://d27f6voftj48k" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://bjrj34u2ybwyd" path="res://assets/background_placeholder.png" id="2_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://su76g6rv7t6s" path="res://assets/Shelf.png" id="2_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://60gfv8j7uh2f" path="res://assets/Bucket.png" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://60gfv8j7uh2f" path="res://assets/Furniture/Bucket.png" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://c5tb5ugocspd1" path="res://assets/Furniture/Trophy_case.png" id="3_tipki"]
 [ext_resource type="Texture2D" uid="uid://wr130120yclm" path="res://icon.svg" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://dsd2hbvx0jvh2" path="res://scripts/gatcha.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://d0vn0jkk7awv7" path="res://scripts/chest.gd" id="6_tefeu"]
@@ -13,6 +13,9 @@
 size = Vector2(504, 12)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_tefeu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o6xl0"]
+load_path = "res://.godot/imported/Shelf.png-c6dd428bacd54ae5a4ec8dc83926409c.ctex"
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jyhfs"]
 
@@ -240,28 +243,15 @@ position = Vector2(-4.9999924, -3)
 scale = Vector2(494, 6.5)
 texture = SubResource("CanvasTexture_tefeu")
 
-[node name="Shelf" type="StaticBody2D" parent="Game"]
-position = Vector2(243, 324)
+[node name="Shelf2" type="Sprite2D" parent="Game"]
+position = Vector2(291, 258)
 scale = Vector2(0.5, 0.5)
+texture = SubResource("CompressedTexture2D_o6xl0")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Game/Shelf"]
-position = Vector2(-3, -171)
-polygon = PackedVector2Array(-355, -61, 357, -60, 355, -39, -355, -37)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Game/Shelf"]
-position = Vector2(-7.403701, -49.25007)
-polygon = PackedVector2Array(-347.5963, -11.749931, 364.4037, -10.749931, 362.4037, 10.250069, -347.5963, 12.250069)
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Game/Shelf"]
-position = Vector2(-11, 120)
-polygon = PackedVector2Array(-347.5963, -11.749931, 364.4037, -10.749931, 362.4037, 10.250069, -347.5963, 12.250069)
-
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Game/Shelf"]
-position = Vector2(-6, 288)
-polygon = PackedVector2Array(-347.5963, -11.749931, 364.4037, -10.749931, 362.4037, 10.250069, -347.5963, 12.250069)
-
-[node name="Sprite2D" type="Sprite2D" parent="Game/Shelf"]
-texture = ExtResource("2_tbgi4")
+[node name="Trophy_case2" type="Sprite2D" parent="Game"]
+position = Vector2(281, 467)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_tipki")
 
 [node name="Bucket" type="StaticBody2D" parent="Game"]
 position = Vector2(847, 324)

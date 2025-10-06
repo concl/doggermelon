@@ -11,23 +11,32 @@ var level_trophies_default = {
 	#7: preload("res://assets/balls_default/purpleball.png")
 }
 
+var shelf_positions = {
+	4: Vector2(80, 467),
+	5: Vector2(180, 467),
+	6: Vector2(280, 467),
+	7: Vector2(380, 467),
+	8: Vector2(480, 467)
+}
+
 var shelf_pos = null
 var moved = false
 
 func setup(spawnpoint, level):
-	print("trophy setup")
-	shelf_pos = Vector2(0, 0)
-	if level < 4:
-		level = 4
+	level += 4
+	if level > 8:
+		level = 8
+	shelf_pos = shelf_positions[level]
 	$Sprite2D.texture = level_trophies_default[level]
-	$Sprite2D.scale = Vector2(0.01,0.01)
+	$Sprite2D.scale = Vector2(0.05,0.05)
+	$Area2D/CollisionShape2D.scale = $Sprite2D.scale
 	global_position = spawnpoint
 	
-func _on_input_event(_viewport, event, _shape_idx):
+func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if moved:
 		return
 	if event.is_action_pressed("click"):
-		moved = true
 		var tween = create_tween()
 		tween.tween_property(self, "global_position", shelf_pos, 0.5)
-		
+		moved = true
+		Globals.collecting -= 1
