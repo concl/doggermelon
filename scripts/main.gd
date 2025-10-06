@@ -17,6 +17,7 @@ const BALL_CLASS = preload("res://scenes/balls.tscn")
 var current_ball: RigidBody2D = null
 var gamestage = 0
 
+var active_delete_mode = false
 
 func _ready():
 	spawn_new_ball()
@@ -167,3 +168,7 @@ func _handle_chests():
 	chest_count.text = str(Globals.unopened_chests)
 	xp_level.text = str(Globals.level)
 	
+
+
+func _on_debug_delete_mode_pressed() -> void:
+	active_delete_mode = true

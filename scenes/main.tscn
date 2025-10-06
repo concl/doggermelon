@@ -352,6 +352,15 @@ offset_right = 201.0
 offset_bottom = 634.0
 text = "MERGE ALL"
 
+[node name="debug_delete_mode" type="Button" parent="Game/UI"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 603.0
+offset_right = 201.0
+offset_bottom = 634.0
+text = "deletemode
+"
+
 [node name="half_clear" type="Button" parent="Game/UI"]
 layout_mode = 0
 offset_left = 272.0
@@ -423,6 +432,7 @@ environment = SubResource("Environment_al0gs")
 [connection signal="pressed" from="Game/UI/PanelContainer/VBoxContainer/XPBox/HBoxContainer/ChestButton" to="." method="_on_chest_button_pressed"]
 [connection signal="pressed" from="Game/UI/debug_end_game" to="." method="_on_debug_end_game_pressed"]
 [connection signal="pressed" from="Game/UI/debug_merge_all" to="." method="_on_debug_merge_all_pressed"]
+[connection signal="pressed" from="Game/UI/debug_delete_mode" to="." method="_on_debug_delete_mode_pressed"]
 [connection signal="pressed" from="Game/UI/half_clear" to="." method="_on_half_clear_pressed"]
 [connection signal="input_event" from="Gatcha/CanvasLayer/Node2D/Area2D" to="Gatcha" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="Gatcha/CanvasLayer/UI/Back" to="." method="_on_button_pressed"]
