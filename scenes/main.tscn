@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dx6bicmwfxw14"]
+[gd_scene load_steps=39 format=3 uid="uid://dx6bicmwfxw14"]
 
 [ext_resource type="Script" uid="uid://d27f6voftj48k" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://bjrj34u2ybwyd" path="res://assets/background_placeholder.png" id="2_o6xl0"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bodgpoha63qap" path="res://assets/signs/sign_poodle.png" id="8_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://cvcl3hlxpcpw5" path="res://assets/chest_button_open.png" id="8_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://y0eiggrew6l7" path="res://assets/signs/sign_shiba.png" id="9_0ld40"]
+[ext_resource type="Texture2D" uid="uid://dtc4d78t1nai7" path="res://assets/end_game.png" id="10_dp3eg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
 size = Vector2(630, 12)
@@ -32,6 +33,8 @@ colors = PackedColorArray(0, 0, 0, 1, 0.7753623, 0.7753623, 0.7753623, 1, 1, 1, 
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ya4ey"]
 gradient = SubResource("Gradient_choun")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ld40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
 size = Vector2(500, 300)
@@ -381,14 +384,16 @@ layout_mode = 2
 text = "1"
 
 [node name="debug_end_game" type="Button" parent="Game/UI"]
-visible = false
 layout_mode = 0
-offset_left = 62.0
-offset_top = 855.625
-offset_right = 146.0
-offset_bottom = 886.625
+offset_left = 1667.0
+offset_top = -27.85756
+offset_right = 3915.0
+offset_bottom = 1600.1425
+scale = Vector2(0.1, 0.1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ld40")
 text = "eng game
 "
+icon = ExtResource("10_dp3eg")
 
 [node name="debug_merge_all" type="Button" parent="Game/UI"]
 visible = false
