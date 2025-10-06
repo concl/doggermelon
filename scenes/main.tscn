@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dx6bicmwfxw14"]
+[gd_scene load_steps=32 format=3 uid="uid://dx6bicmwfxw14"]
 
 [ext_resource type="Script" uid="uid://d27f6voftj48k" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://bjrj34u2ybwyd" path="res://assets/background_placeholder.png" id="2_o6xl0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c5tb5ugocspd1" path="res://assets/Furniture/Trophy_case.png" id="3_tipki"]
 [ext_resource type="Texture2D" uid="uid://wr130120yclm" path="res://icon.svg" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://dsd2hbvx0jvh2" path="res://scripts/gatcha.gd" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://dyxa2b17aedlm" path="res://scripts/check_mouse.gd" id="6_choun"]
 [ext_resource type="Script" uid="uid://d0vn0jkk7awv7" path="res://scripts/chest.gd" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://c80tjc7agqg7d" path="res://assets/3d/chest.glb" id="7_o6xl0"]
 
@@ -14,6 +15,9 @@
 size = Vector2(504, 12)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_tefeu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85g3d"]
+size = Vector2(928, 684)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jyhfs"]
 
@@ -262,6 +266,13 @@ texture = ExtResource("3_jyhfs")
 position = Vector2(12.237995, 37.791706)
 scale = Vector2(2.8475933, 2.3793857)
 polygon = PackedVector2Array(-171.45636, -160.4581, -160.21881, 133.7355, 154.43286, 135.4166, 161.4563, -159.61754, 155.1352, -159.61754, 149.51642, 36.231323, 138.27887, 127.01108, -148.2789, 127.01108, -156.70706, 49.680176, -163.73056, -160.4581)
+
+[node name="checkMouse" type="Area2D" parent="Game/Bucket"]
+script = ExtResource("6_choun")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Bucket/checkMouse"]
+position = Vector2(-6, -6)
+shape = SubResource("RectangleShape2D_85g3d")
 
 [node name="Camera2D" type="Camera2D" parent="Game"]
 position = Vector2(961, 541)
