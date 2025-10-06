@@ -198,7 +198,7 @@ func collect_to_xp(location = Globals.xp_label_pos):
 	else:
 		var trophy = null
 		if randomizer < 0.9 && lvl == Globals.trophy_level+1:
-			Globals.trophy_levels+=1
+			Globals.trophy_level+=1
 			trophy = true
 		elif randomizer > 0.9:
 			trophy = false
