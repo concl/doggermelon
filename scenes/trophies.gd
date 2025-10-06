@@ -3,7 +3,7 @@ extends Node2D
 var level_trophies_dog = {
 	4: preload("res://assets/dog_trophies/shiba.png"),
 	5: preload("res://assets/dog_trophies/poodle.png"),
-	6: preload("res://assets/balls_default/orangeball.png"), # !
+	6: preload("res://assets/dog_trophies/golden.png"),
 	7: preload("res://assets/dog_trophies/dane.png"),
 	8: preload("res://assets/dog_trophies/bernard.png")
 }
@@ -18,9 +18,9 @@ var level_trophies_default = {
 	#6: preload("res://assets/balls_default/dblueball.png"),
 	#7: preload("res://assets/balls_default/purpleball.png")
 }
-var y_level = 648
+var y_level = 630
 var x_delta = 235
-var x_initial = 143
+var x_initial = 130
 var shelf_positions = {
 	4: Vector2(x_initial, y_level),
 	5: Vector2(x_initial + 1*x_delta, y_level),
