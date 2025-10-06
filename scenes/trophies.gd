@@ -20,9 +20,10 @@ func setup(spawnpoint, level):
 	if level < 4:
 		level = 4
 	$Sprite2D.texture = level_trophies_default[level]
+	$Sprite2D.scale = Vector2(0.01,0.01)
 	global_position = spawnpoint
 	
-func _on_input_event(viewport, event, shape_idx):
+func _on_input_event(_viewport, event, _shape_idx):
 	if moved:
 		return
 	if event.is_action_pressed("click"):

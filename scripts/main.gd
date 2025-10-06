@@ -68,9 +68,7 @@ func check_ceiling_balls() -> void:
 				return  # stop after first detection
 
 func _unhandled_input(event: InputEvent) -> void:
-	
-	
-	if game.visible and event.is_action_pressed("click") and current_ball and current_ball.can_drop == true:
+	if game.visible and event.is_action_pressed("click") and current_ball and current_ball.can_drop and not Globals.collecting:
 		current_ball.freeze_ball(false)
 		current_ball.holding = false
 		current_ball = null

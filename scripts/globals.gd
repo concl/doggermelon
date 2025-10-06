@@ -6,6 +6,8 @@ signal xp_changed
 
 signal clear_all_balls
 
+var collecting = false
+
 var xp = 0
 var level = 1
 

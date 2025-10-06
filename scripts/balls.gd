@@ -176,6 +176,8 @@ func merge(other):
 func collect_to_xp(location = Globals.xp_label_pos):
 	var randomizer = 0
 	if randomizer < 0.2:
+		if not Globals.collecting:
+			Globals.collecting = true
 		var new_ball = create_ball(global_position, lvl)
 		new_ball.freeze_ball(true)
 		new_ball.generate_pickup()
