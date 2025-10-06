@@ -247,9 +247,8 @@ position = Vector2(50, -4)
 shape = SubResource("RectangleShape2D_tefeu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Game/Ceiling"]
-visible = false
-position = Vector2(-4.9999924, -3)
-scale = Vector2(494, 6.5)
+position = Vector2(54.000134, -3)
+scale = Vector2(543.9999, 6.5)
 texture = SubResource("CanvasTexture_tefeu")
 
 [node name="Shelf2" type="Sprite2D" parent="Game"]
@@ -296,7 +295,7 @@ texture = ExtResource("3_jyhfs")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Game/Bucket"]
 position = Vector2(127.15578, 37.791706)
 scale = Vector2(3.2711282, 2.3793857)
-polygon = PackedVector2Array(-184.99915, -273.09222, -133.0293, 217.79074, 155.55615, 221.15298, 205.69177, -276.45447, 189.18372, -280.65723, 137.82526, 186.69028, -116.52124, 185.84976, -165.43402, -270.5706)
+polygon = PackedVector2Array(-184.99915, -273.09222, -133.0293, 217.79074, 155.55615, 221.15298, 205.69177, -276.45447, 189.18372, -280.65723, 135.37964, 169.87921, -118.35541, 169.87921, -165.43402, -270.5706)
 
 [node name="checkMouse" type="Area2D" parent="Game/Bucket"]
 script = ExtResource("6_choun")
