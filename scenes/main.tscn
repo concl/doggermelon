@@ -276,9 +276,11 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="Game/UI"]
-layout_mode = 0
-offset_right = 400.0
-offset_bottom = 50.0
+layout_mode = 1
+offset_left = 27.0
+offset_top = 19.0
+offset_right = 427.0
+offset_bottom = 69.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Game/UI/PanelContainer"]
 layout_mode = 2
@@ -329,11 +331,15 @@ offset_bottom = 643.0
 text = "half_clear (on trigger)"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Game/UI"]
-layout_mode = 0
-offset_left = 1069.0
-offset_top = 18.0
-offset_right = 1109.0
-offset_bottom = 58.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_top = 15.0
+offset_right = -20.0
+offset_bottom = 55.0
+grow_horizontal = 0
 
 [node name="ChestButton" type="TextureButton" parent="Game/UI/HBoxContainer"]
 layout_mode = 2
@@ -376,8 +382,10 @@ offset_bottom = 40.0
 
 [node name="Back" type="Button" parent="Gatcha/CanvasLayer/UI"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 27.0
+offset_top = 18.0
+offset_right = 72.0
+offset_bottom = 49.0
 text = "back"
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="Gatcha"]
