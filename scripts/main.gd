@@ -82,7 +82,6 @@ func _unhandled_input(event: InputEvent) -> void:
     #print(Globals.collecting)
     #print(current_ball.can_drop)
     if game.visible and event.is_action_pressed("click") and current_ball and current_ball.can_drop and Globals.collecting<=0:
-        print(event)
         if mouse_over_bucket:
             
             current_ball.freeze_ball(false)
@@ -141,8 +140,6 @@ func threshold_clear():
 
 func _on_xp_change():
     xp_bar.value = Globals.xp
-    print(xp_bar.value)
-
 
 func _on_debug_end_game_pressed() -> void:
     clear_all_balls()

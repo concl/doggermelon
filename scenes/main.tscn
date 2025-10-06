@@ -455,6 +455,7 @@ scale = Vector2(0.153, 0.153)
 texture = ExtResource("9_0ld40")
 
 [node name="Gatcha" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("5_tbgi4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Gatcha"]
