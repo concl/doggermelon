@@ -1,6 +1,6 @@
 extends Node3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var start_button: Button = $MenuUI/Main/VBoxContainer/StartButton
+@onready var start_button: TextureButton = $MenuUI/Main/VBoxContainer/StartButton
 const MAIN = preload("res://scenes/main.tscn")
 
 
@@ -26,3 +26,7 @@ func _on_options_button_pressed() -> void:
 func _on_back_button_pressed() -> void:
 	main.show()
 	options.hide()
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
