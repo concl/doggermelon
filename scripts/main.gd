@@ -166,7 +166,6 @@ func _on_button_pressed() -> void:
 	gatcha.hide()
 	
 	var item = gatcha.item.duplicate()
-	
 	game.add_child(item)
 	item.currentID = gatcha.item.currentID
 	item.global_position = gatcha.item.global_position
@@ -174,6 +173,9 @@ func _on_button_pressed() -> void:
 	item.area_2d.show()
 	print(item.currentID)
 	item.move_to_shelf()
+	Globals.collectibles[item.currentID] += Vector2(1,1)
+
+	
 
 
 func _on_half_clear_pressed() -> void:
