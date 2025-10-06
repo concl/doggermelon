@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdwc7pueuliuj"]
 
-[ext_resource type="Script" uid="uid://blu551wj3mxpb" path="res://scenes/trophies.gd" id="1_ile6p"]
+[ext_resource type="Script" uid="uid://blu551wj3mxpb" path="res://scripts/trophies.gd" id="1_ile6p"]
 [ext_resource type="Texture2D" uid="uid://puhp5hw8uiee" path="res://assets/balls_default/redball.png" id="1_wtnpw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ile6p"]
