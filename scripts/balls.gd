@@ -4,13 +4,16 @@ class_name Ball
 const BALL_CLASS = preload("res://scenes/balls.tscn")
 const TROPHY_SCENE = preload("res://scenes/trophies.tscn")
 
-#@onready var sprite = $Sprite2D
+@onready var sprite = $Sprite2D
 
 var lvl = 0
 var merged = false
 var can_drop = false
 var holding = false
 var waiting_for_pickup = false
+
+var shake = false
+var flash = 0
 
 
 var spawn_probabilities : Dictionary = {
@@ -60,6 +63,11 @@ var sprite_levels_default = {
 	7: preload("res://assets/balls_default/purpleball.png")
 }
 
+func _process(delta: float) -> void:
+	
+	if shake:
+		sprite.position = Vector2(randf() * 10, randf() * 10)
+
 func level_to_value(level) -> int:
 	return 2**(level+1)
 
@@ -78,6 +86,32 @@ func freeze_ball(value: bool):
 	else:
 		collision_layer = 1
 		collision_mask = 1
+
+func toggle_shake():
+	if not shake:
+		shake = true
+		flash = 1
+		var tween = create_tween()
+		tween.tween_property(sprite, "material:shader_parameter/t", 1.0, 0.3)
+		tween.connect("finished", flash_unflash)
+	else:
+		flash = 0
+		shake = false
+	
+func flash_unflash():
+	if flash == 0:
+		return
+	elif flash == 1:
+		flash = 2
+		var tween = create_tween()
+		tween.tween_property(sprite.material, "shader_parameter/t", 0.0, 0.3)
+		tween.connect("finished", flash_unflash)
+	elif flash == 2:
+		flash = 1
+		var tween = create_tween()
+		tween.tween_property(sprite.material, "shader_parameter/t", 1.0, 0.3)
+		tween.connect("finished", flash_unflash)
+
 
 func choose_level_by_probability(prob_table: Dictionary) -> int:
 	var rand_val := randf()

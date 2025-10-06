@@ -1,12 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dot8xo3nuqn4t"]
+[gd_scene load_steps=4 format=3 uid="uid://dot8xo3nuqn4t"]
 
 [ext_resource type="Script" uid="uid://ynomxw5kdk07" path="res://scripts/balls.gd" id="1_tger7"]
 [ext_resource type="Texture2D" uid="uid://cw0ogpegmo3bp" path="res://assets/balls_dogs/ball_pomeranian_rsz.png" id="2_kcjbe"]
-[ext_resource type="Shader" uid="uid://3xyx1ay1c5k" path="res://scenes/balls.gdshader" id="2_pl16b"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mmmyr"]
-shader = ExtResource("2_pl16b")
-shader_parameter/t = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ystb"]
 radius = 458.0884
@@ -16,7 +11,6 @@ collision_layer = 3
 script = ExtResource("1_tger7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_mmmyr")
 texture = ExtResource("2_kcjbe")
 
 [node name="Area2D" type="Area2D" parent="."]
