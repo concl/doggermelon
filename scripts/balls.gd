@@ -66,6 +66,7 @@ var sprite_levels_default = {
 func _process(_delta: float) -> void:
 	if shake:
 		sprite.position = Vector2(randf() * 10, randf() * 10)
+	
 
 func level_to_value(level) -> int:
 	return 2**(level+1)

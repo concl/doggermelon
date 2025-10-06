@@ -103,6 +103,12 @@ func clear_all_balls():
 	for node in game.get_children():
 		if node is Ball && not node.freeze:
 			node.collect_to_xp()
+	# reset counters
+	for id in Globals.collectibles:
+		var vec = Globals.collectibles[id]
+		vec.y = vec.x
+		Globals.collectibles[id] = vec
+	# reset score
 	
 
 func merge_all_balls():
