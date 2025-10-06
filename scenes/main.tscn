@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c5tb5ugocspd1" path="res://assets/Furniture/Trophy_case.png" id="3_tipki"]
 [ext_resource type="Texture2D" uid="uid://jfup6xdcf0ee" path="res://assets/signs/sign_bernard.png" id="5_jkv2x"]
 [ext_resource type="Script" uid="uid://dsd2hbvx0jvh2" path="res://scripts/gatcha.gd" id="5_tbgi4"]
-[ext_resource type="Script" uid="uid://dyxa2b17aedlm" path="res://scripts/check_mouse.gd" id="6_choun"]
+[ext_resource type="Script" path="res://scripts/check_mouse.gd" id="6_choun"]
 [ext_resource type="Texture2D" uid="uid://b7f6sjqr45uxw" path="res://assets/signs/sign_dane.png" id="6_jbj1t"]
 [ext_resource type="Script" uid="uid://d0vn0jkk7awv7" path="res://scripts/chest.gd" id="6_tefeu"]
 [ext_resource type="Texture2D" uid="uid://bvj8j01ikqro2" path="res://assets/chest_button.png" id="7_choun"]
@@ -435,6 +435,13 @@ offset_top = 857.61475
 offset_right = 519.0
 offset_bottom = 888.61475
 text = "half_clear (on trigger)"
+
+[node name="Label" type="Label" parent="Game"]
+offset_left = 948.0
+offset_top = 1043.0
+offset_right = 1205.0
+offset_bottom = 1066.0
+text = "(More collectibles coming soon...)"
 
 [node name="test_gamestage" type="Label" parent="Game"]
 offset_right = 40.0
