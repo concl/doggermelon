@@ -37,4 +37,3 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 		tween.tween_property(self, "global_position", shelf_pos, 0.5)
 		moved = true
 		Globals.collecting -= 1
-		Globals.trophy_level += 1
