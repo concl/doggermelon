@@ -78,8 +78,13 @@ func check_ceiling_balls() -> void:
 				return  # stop after first detection
 
 func _unhandled_input(event: InputEvent) -> void:
-	if game.visible and event.is_action_pressed("click") and current_ball and current_ball.can_drop and Globals.collecting==0:
+	#print(event)
+	#print(Globals.collecting)
+	#print(current_ball.can_drop)
+	if game.visible and event.is_action_pressed("click") and current_ball and current_ball.can_drop and Globals.collecting<=0:
+		print(event)
 		if mouse_over_bucket:
+			
 			current_ball.freeze_ball(false)
 			current_ball.holding = false
 			current_ball = null
@@ -153,7 +158,7 @@ func _on_xp_bar_value_changed(value: float) -> void:
 
 
 func _on_chest_button_pressed() -> void:
-	if Globals.unopened_chests > 0:
+	#if Globals.unopened_chests > 0:
 		Globals.update_chests(-1)
 		game.hide()
 		gatcha.activate()
@@ -162,6 +167,13 @@ func _on_chest_button_pressed() -> void:
 func _on_button_pressed() -> void:
 	game.show()
 	gatcha.hide()
+	
+	var item = gatcha.item.duplicate()
+	
+	game.add_child(item)
+	item.global_position = gatcha.item.global_position
+	item.area_2d.show()
+	item.move_to_shelf()
 
 
 func _on_half_clear_pressed() -> void:
