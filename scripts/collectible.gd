@@ -49,7 +49,6 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 			else:
 				Globals.collectibles_on_shelf[currentID] = true
 		else:
-			print("click on shelf")
 			if !isPassive:
 				Globals.emit_signal("powerup_used", currentID)
 			

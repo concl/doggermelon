@@ -103,6 +103,7 @@ func clear_all_balls():
 	
 
 func merge_all_balls():
+	print("merging all balls")
 	var all_balls: Dictionary={}
 	for node in game.get_children():
 		if node.is_class("RigidBody2D") && not node.freeze && node.lvl != 10:
