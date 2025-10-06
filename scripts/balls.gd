@@ -112,7 +112,6 @@ func spawn(stage: int) -> void:
 	
 	$Sprite2D.texture = sprite_levels[lvl]
 	$Sprite2D.scale = get_scalar(lvl)
-	#$CollisionShape2D.scale = sprite.scale
 	$Area2D/CollisionShape2D.scale = $Sprite2D.scale
 	
 	play_grow_animation()
