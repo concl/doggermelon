@@ -15,15 +15,18 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_start_button_pressed() -> void:
+	Globals.play_sound("res://assets/sounds/pop1.mp3")
 	animation_player.play("fade_out")
 
 
 func _on_options_button_pressed() -> void:
+	Globals.play_sound("res://assets/sounds/pop1.mp3")
 	main.hide()
 	options.show()
 
 
 func _on_back_button_pressed() -> void:
+	Globals.play_sound("res://assets/sounds/pop1.mp3")
 	main.show()
 	options.hide()
 

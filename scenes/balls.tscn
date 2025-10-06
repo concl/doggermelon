@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://ynomxw5kdk07" path="res://scripts/balls.gd" id="1_tger7"]
 [ext_resource type="Texture2D" uid="uid://cw0ogpegmo3bp" path="res://assets/balls_dogs/ball_pomeranian_rsz.png" id="2_kcjbe"]
-[ext_resource type="Shader" path="res://scenes/balls.gdshader" id="2_pl16b"]
+[ext_resource type="Shader" uid="uid://3xyx1ay1c5k" path="res://scenes/balls.gdshader" id="2_pl16b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mmmyr"]
 shader = ExtResource("2_pl16b")
 shader_parameter/t = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ystb"]
-radius = 458.0884
+radius = 484.05063
 
 [node name="Ball" type="RigidBody2D"]
 collision_layer = 3

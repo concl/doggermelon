@@ -327,9 +327,9 @@ mouse_filter = 2
 [node name="PanelContainer" type="PanelContainer" parent="Game/UI"]
 layout_mode = 1
 offset_left = 27.0
-offset_top = 19.0
-offset_right = 277.0
-offset_bottom = 123.0
+offset_top = -9.85247
+offset_right = 374.0
+offset_bottom = 164.16058
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Game/UI/PanelContainer"]
 layout_mode = 2
@@ -363,10 +363,11 @@ layout_mode = 2
 [node name="ChestButton" type="TextureButton" parent="Game/UI/PanelContainer/VBoxContainer/XPBox/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("7_choun")
 texture_pressed = ExtResource("8_ya4ey")
 ignore_texture_size = true
-stretch_mode = 4
+stretch_mode = 5
 
 [node name="ChestCount" type="Label" parent="Game/UI/PanelContainer/VBoxContainer/XPBox/HBoxContainer"]
 layout_mode = 2

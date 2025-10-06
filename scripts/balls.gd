@@ -16,6 +16,13 @@ var pickup_value = null
 
 var shake = false
 
+var sounds = ["res://assets/sounds/pop1.mp3",
+	"res://assets/sounds/pop2.mp3",
+	"res://assets/sounds/pop3.mp3",
+	"res://assets/sounds/pop4.mp3",
+	"res://assets/sounds/pop5.mp3"
+]
+
 var spawn_probabilities : Dictionary = {
 	Globals.GameStage.EARLY: {
 		0: 0.8,
@@ -67,6 +74,9 @@ func _process(_delta: float) -> void:
 	if shake:
 		sprite.position = Vector2(randf() * 10, randf() * 10)
 	
+
+func pop():
+	Globals.play_sound(sounds[randi_range(0,4)])
 
 func level_to_value(level) -> int:
 	return 2**(level+1)
@@ -161,6 +171,7 @@ func _on_merge_tween_finished(other, spawn_position: Vector2):
 	queue_free()
 
 func merge(other):
+	pop()
 	if lvl == 10:
 		return
 	

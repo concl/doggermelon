@@ -24,7 +24,8 @@ func activate():
 	chest_hp = 5
 	chest.show()
 	animation_player.play("top_drop") 
-	animation_player_bottom.play("drop") 
+	animation_player_bottom.play("drop")
+	Globals.play_sound("res://assets/sounds/chesthit.mp3")
 	get_collectible()
 
 func _ready():
@@ -64,8 +65,12 @@ func hit_chest():
 	animation_player.play("hit")
 	animation_player_bottom.play("bottom_hit")
 	chest_hp -= 1
+	
 	if chest_hp == 0:
+		Globals.play_sound("res://assets/sounds/chestbreak.mp3")
 		break_chest()
+	else:
+		Globals.play_sound("res://assets/sounds/chesthit.mp3")
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	

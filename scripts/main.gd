@@ -84,7 +84,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	#print(current_ball.can_drop)
 	if game.visible and event.is_action_pressed("click") and current_ball and current_ball.can_drop and Globals.collecting<=0:
 		if mouse_over_bucket:
-			
+			Globals.play_sound("res://assets/sounds/pop1.mp3")
 			current_ball.freeze_ball(false)
 			current_ball.holding = false
 			current_ball = null
