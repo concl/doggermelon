@@ -155,7 +155,7 @@ func _on_xp_bar_value_changed(value: float) -> void:
 
 
 func _on_chest_button_pressed() -> void:
-	#if Globals.unopened_chests > 0:
+	if Globals.unopened_chests > 0:
 		Globals.update_chests(-1)
 		game.hide()
 		gatcha.activate()

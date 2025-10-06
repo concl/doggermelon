@@ -84,4 +84,25 @@ libraries = {
 }
 autoplay = "RESET"
 
+[node name="Label" type="Label" parent="."]
+offset_left = -281.0
+offset_top = 31.0
+offset_right = 283.0
+offset_bottom = 277.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -292.0
+offset_top = 157.0
+offset_right = 272.0
+offset_bottom = 403.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

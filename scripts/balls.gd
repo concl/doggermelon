@@ -223,7 +223,7 @@ func collect_to_xp(location = Globals.xp_label_pos):
 	tween.connect("finished", remove)
 	
 func remove():
-	Globals.update_xp(level_to_value(lvl) * 100 / 1024)
+	Globals.update_xp(level_to_value(lvl) * 100 / 512)
 	queue_free()
 
 
