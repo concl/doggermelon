@@ -72,7 +72,7 @@ func level_to_value(level) -> int:
 
 func get_scalar(level) -> Vector2:
 	var starter = 0.04
-	var diff = 0.01
+	var diff = 0.03
 	var new_scale = level*diff + starter
 	return Vector2(new_scale,new_scale)
 
@@ -203,7 +203,7 @@ func collect_to_xp(location = Globals.xp_label_pos):
 		if randomizer < 0.9 && lvl == Globals.trophy_level+1:
 			Globals.trophy_level+=1
 			pickup_id = 0
-		elif randomizer > 0.95:
+		elif randomizer > 0.1:
 			var randomizer2 = randi_range(1,2)
 			Globals.collectibles[randomizer2] += Vector2(1,1)
 			pickup_id = randomizer2

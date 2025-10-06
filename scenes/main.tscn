@@ -462,7 +462,6 @@ position = Vector2(970, 546)
 shape = SubResource("RectangleShape2D_o6xl0")
 
 [node name="UI" type="Control" parent="Gatcha/CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
