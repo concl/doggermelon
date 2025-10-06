@@ -182,7 +182,7 @@ func _powerup_used(id: int) -> void:
 	if uses.y == 0:
 		return
 	else:
-		uses.y -= 1;
+		Globals.collectibles[id] -= Vector2(0,1)
 	match id:
 		1:
 			merge_all_balls()
