@@ -275,26 +275,29 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Game/UI"]
+[node name="PanelContainer" type="PanelContainer" parent="Game/UI"]
 layout_mode = 0
-offset_right = 766.0
+offset_right = 400.0
 offset_bottom = 50.0
 
-[node name="Score" type="Label" parent="Game/UI/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Game/UI/PanelContainer"]
 layout_mode = 2
 
-[node name="XPBox" type="HBoxContainer" parent="Game/UI/VBoxContainer"]
+[node name="Score" type="Label" parent="Game/UI/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="XPBox" type="HBoxContainer" parent="Game/UI/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="XPLabel" type="Label" parent="Game/UI/VBoxContainer/XPBox"]
+[node name="XPLabel" type="Label" parent="Game/UI/PanelContainer/VBoxContainer/XPBox"]
 layout_mode = 2
 text = "XP: "
 
-[node name="XPAmount" type="Label" parent="Game/UI/VBoxContainer/XPBox"]
+[node name="XPAmount" type="Label" parent="Game/UI/PanelContainer/VBoxContainer/XPBox"]
 layout_mode = 2
 
-[node name="XPBar" type="TextureProgressBar" parent="Game/UI/VBoxContainer/XPBox"]
+[node name="XPBar" type="TextureProgressBar" parent="Game/UI/PanelContainer/VBoxContainer/XPBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 nine_patch_stretch = true
@@ -371,7 +374,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Button" type="Button" parent="Gatcha/CanvasLayer/UI"]
+[node name="Back" type="Button" parent="Gatcha/CanvasLayer/UI"]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
@@ -404,13 +407,13 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.63
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Gatcha/CanvasLayer2/Chest"]
 environment = SubResource("Environment_al0gs")
 
-[connection signal="value_changed" from="Game/UI/VBoxContainer/XPBox/XPBar" to="." method="_on_xp_bar_value_changed"]
+[connection signal="value_changed" from="Game/UI/PanelContainer/VBoxContainer/XPBox/XPBar" to="." method="_on_xp_bar_value_changed"]
 [connection signal="pressed" from="Game/UI/debug_end_game" to="." method="_on_debug_end_game_pressed"]
 [connection signal="pressed" from="Game/UI/debug_merge_all" to="." method="_on_debug_merge_all_pressed"]
 [connection signal="pressed" from="Game/UI/half_clear" to="." method="_on_half_clear_pressed"]
 [connection signal="pressed" from="Game/UI/HBoxContainer/ChestButton" to="." method="_on_chest_button_pressed"]
 [connection signal="input_event" from="Gatcha/CanvasLayer/Node2D/Area2D" to="Gatcha" method="_on_area_2d_input_event"]
-[connection signal="pressed" from="Gatcha/CanvasLayer/UI/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Gatcha/CanvasLayer/UI/Back" to="." method="_on_button_pressed"]
 [connection signal="animation_finished" from="Gatcha/CanvasLayer2/Chest/chest/AnimationPlayerBottom" to="Gatcha" method="_on_animation_player_bottom_animation_finished"]
 
 [editable path="Gatcha/CanvasLayer2/Chest/chest"]

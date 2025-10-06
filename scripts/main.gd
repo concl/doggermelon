@@ -4,12 +4,14 @@ const BALL_CLASS = preload("res://scenes/balls.tscn")
 @onready var gatcha: CanvasLayer = $Gatcha
 
 @onready var game: CanvasLayer = $Game
-@onready var score_label: Label = $Game/UI/VBoxContainer/Score
-@onready var xp_amount: Label = $Game/UI/VBoxContainer/XPBox/XPAmount
-@onready var xp_bar: TextureProgressBar = $Game/UI/VBoxContainer/XPBox/XPBar
-@onready var bucket_sprite = $Game/Bucket/Sprite2D
-@onready var xp_label: Label = $Game/UI/VBoxContainer/XPBox/XPLabel
+@onready var score_label: Label = $Game/UI/PanelContainer/VBoxContainer/Score
+@onready var xp_amount: Label = $Game/UI/PanelContainer/VBoxContainer/XPBox/XPAmount
+@onready var xp_bar: TextureProgressBar = $Game/UI/PanelContainer/VBoxContainer/XPBox/XPBar
+@onready var xp_label: Label = $Game/UI/PanelContainer/VBoxContainer/XPBox/XPLabel
 @onready var chest_count: Label = $Game/UI/HBoxContainer/ChestCount
+
+@onready var bucket_sprite = $Game/Bucket/Sprite2D
+
 
 var current_ball: RigidBody2D = null
 var gamestage = 0
@@ -128,6 +130,7 @@ func threshold_clear():
 func _on_xp_change():
 	xp_amount.text = str(Globals.xp)
 	xp_bar.value = Globals.xp
+	print(xp_bar.value)
 
 
 func _on_debug_end_game_pressed() -> void:

@@ -36,5 +36,7 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 		moved = true
 		Globals.collecting -= 1
 
+
+
 func fade_in():
 	animation_player.play("fade_in")
