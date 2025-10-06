@@ -195,7 +195,9 @@ func collect_to_xp(location = Globals.xp_label_pos):
 	# 0-60 [nothing]
 	# 60-90 [trophy or nothing]
 	# 90-100 [collectible]
-	randomizer = 0.99
+	
+	#SET DROPRATE HERE
+	#randomizer = 0.99
 
 	if randomizer < 0.6:
 		pass
