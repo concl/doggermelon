@@ -11,6 +11,7 @@ const COLLECTIBLE = preload("res://scenes/collectible.tscn")
 @onready var animation_player_bottom: AnimationPlayer = $CanvasLayer2/Chest/chest/AnimationPlayerBottom
 
 @onready var chest: Node3D = $CanvasLayer2/Chest/chest
+@onready var back: Button = $CanvasLayer/UI/Back
 
 var chest_hp = 5
 var rewards = []
@@ -19,6 +20,7 @@ var item = null
 func activate():
 	show()
 	item.hide()
+	back.hide()
 	chest_hp = 5
 	chest.show()
 	animation_player.play("top_drop") 
@@ -50,6 +52,7 @@ func break_chest():
 	animation_player_bottom.play("bottom_explode")
 	item.fade_in()
 	item.show()
+	
   
 func hit_chest():
 	animation_player.play("hit")
@@ -69,3 +72,4 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 func _on_animation_player_bottom_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "bottom_explode":
 		chest.hide()
+		back.show()
