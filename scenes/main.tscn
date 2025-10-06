@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dx6bicmwfxw14"]
+[gd_scene load_steps=26 format=3 uid="uid://dx6bicmwfxw14"]
 
 [ext_resource type="Script" uid="uid://d27f6voftj48k" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://bjrj34u2ybwyd" path="res://assets/background_placeholder.png" id="2_o6xl0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://wr130120yclm" path="res://icon.svg" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://dsd2hbvx0jvh2" path="res://scripts/gatcha.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://d0vn0jkk7awv7" path="res://scripts/chest.gd" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://c80tjc7agqg7d" path="res://assets/3d/chest.glb" id="7_o6xl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
 size = Vector2(504, 12)
@@ -21,6 +22,169 @@ size = Vector2(504, 12)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o6xl0"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
+size = Vector2(200, 200)
+
+[sub_resource type="Animation" id="Animation_qnpfw"]
+resource_name = "bottom_hit"
+length = 0.20833333
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.033333335, 1, 0, 0, 0, 0.06666667, 1, 0, 0.027022948, 0, 0.1, 1, 0, 0.06305355, 0, 0.13333334, 1, 0, 0.081068836, 0, 0.20833333, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.033333335, 1, 0, 0, 0, 1, 0.06666667, 1, -0.019707885, 0.0007620033, -0.009132586, 0.9997638, 0.1, 1, -0.045972217, 0.0021770257, -0.021268563, 0.99871397, 0.13333334, 1, -0.059092883, 0.0030837653, -0.027313806, 0.99787396, 0.2, 1, -0.0065697506, 0.00025401873, -0.0030444064, 0.9999738, 0.20833333, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_yuiwj"]
+resource_name = "bottom_reset"
+length = 0.041666668
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/2/type = "position_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 1.7977003, 0)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("top")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_h8j2n"]
+resource_name = "drop"
+length = 0.5416667
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 2.3327625, 0, 0.033333335, 1, 0, 2.3327625, 0, 0.06666667, 1, 0, 2.3247383, 0, 0.1, 1, 0, 2.2819426, 0, 0.13333334, 1, 0, 2.1749535, 0, 0.16666667, 1, 0, 1.9716744, 0, 0.2, 1, 0, 1.5758151, 0, 0.23333333, 1, 0, 0.937505, 0, 0.26666668, 1, 0, 0.3467647, 0, 0.3, 1, 0, 0, 0, 0.5416667, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.26666668, 1, 0, 0, 0, 1, 0.3, 1, 0.00078280014, 0.00017535819, 0.0010953775, 0.9999991, 0.36666667, 1, 0.0070523196, 0.0016123971, 0.009852642, 0.9999254, 0.4, 1, -0.0039449637, -0.00120604, -0.005330537, 0.99997735, 0.43333334, 1, -0.019532783, -0.0047789346, -0.0271036, 0.9994304, 0.46666667, 1, -0.028036347, -0.0064904504, -0.039121084, 0.99882, 0.53333336, 1, -0.0031340718, -0.00078258035, -0.004337597, 0.99998546, 0.5416667, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_uljc4"]
+resource_name = "hit"
+length = 0.29166666
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("top")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -4.795522e-17, 1.7977003, 1.0648198e-32)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.033333335, 1, 0, 0, 0, 1, 0.06666667, 1, 0.010916018, -0.0008472316, 0.004990983, 0.99992764, 0.1, 1, 0.031671714, -0.0021385772, 0.014547821, 0.99939024, 0.13333334, 1, 0.055491082, -0.0033357502, 0.025573302, 0.99812615, 0.2, 1, 0.055491067, -0.0033357497, 0.025573298, 0.9981261, 0.23333333, 1, 0.031671707, -0.002138577, 0.014547817, 0.9993902, 0.26666668, 1, 0.010916009, -0.0008472311, 0.004990978, 0.99992764, 0.29166666, 1, 0, 0, 0, 1)
+tracks/2/type = "position_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bottom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_nv8vp"]
+resource_name = "top_drop"
+length = 0.5416667
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -4.795522e-17, 4.422516, 1.0648198e-32, 0.033333335, 1, -4.795522e-17, 4.422516, 1.0648198e-32, 0.06666667, 1, -4.795522e-17, 4.4125915, 1.0648198e-32, 0.1, 1, -4.795522e-17, 4.3596597, 1.0648198e-32, 0.13333334, 1, -4.795522e-17, 4.227331, 1.0648198e-32, 0.16666667, 1, -4.795522e-17, 3.9759066, 1.0648198e-32, 0.2, 1, -4.795522e-17, 3.4862905, 1.0648198e-32, 0.23333333, 1, -4.795522e-17, 2.757666, 1.0648198e-32, 0.26666668, 1, -4.795522e-17, 2.1081662, 1.0648198e-32, 0.3, 1, -4.795522e-17, 1.7577136, 1.0648198e-32, 0.36666667, 1, -4.795522e-17, 1.8983197, 1.0648198e-32, 0.4, 1, -4.795522e-17, 1.8314888, 1.0648198e-32, 0.43333334, 1, -4.795522e-17, 1.7775494, 1.0648198e-32, 0.46666667, 1, -4.795522e-17, 1.7832116, 1.0648198e-32, 0.5, 1, -4.795522e-17, 1.7918714, 1.0648198e-32, 0.5416667, 1, -4.795522e-17, 1.7977003, 1.0648198e-32)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.26666668, 1, 0, 0, 0, 1, 0.3, 1, 0.0033191536, 0.00066097104, -0.0017209953, 0.9999928, 0.36666667, 1, 0.029817171, 0.0057183066, -0.015573658, 0.99941766, 0.4, 1, 0.023206629, 0.0045116106, -0.012089403, 0.9996475, 0.43333334, 1, 0.00995724, 0.0019828696, -0.0051628724, 0.99993515, 0.46666667, 1, 0, 0, 0, 1, 0.5416667, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_37p0b"]
+resource_name = "top_reset"
+length = 0.041666668
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -4.795522e-17, 1.7977003, 1.0648198e-32)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/2/type = "position_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bottom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_47vgn"]
+_data = {
+&"bottom_hit": SubResource("Animation_qnpfw"),
+&"bottom_reset": SubResource("Animation_yuiwj"),
+&"drop": SubResource("Animation_h8j2n"),
+&"hit": SubResource("Animation_uljc4"),
+&"top_drop": SubResource("Animation_nv8vp"),
+&"top_reset": SubResource("Animation_37p0b")
+}
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_64coc"]
 sky_horizon_color = Color(1.5513475, 1.5685976, 1.5925975, 1)
 ground_bottom_color = Color(1, 1, 1, 1)
@@ -33,8 +197,6 @@ sky_material = SubResource("ProceduralSkyMaterial_64coc")
 background_mode = 2
 sky = SubResource("Sky_aqlsu")
 tonemap_mode = 2
-
-[sub_resource type="BoxMesh" id="BoxMesh_tefeu"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0wfyh")
@@ -195,6 +357,11 @@ script = ExtResource("5_tbgi4")
 [node name="Node2D" type="Node2D" parent="Gatcha/CanvasLayer"]
 position = Vector2(576, 324)
 
+[node name="Area2D" type="Area2D" parent="Gatcha/CanvasLayer/Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gatcha/CanvasLayer/Node2D/Area2D"]
+shape = SubResource("RectangleShape2D_o6xl0")
+
 [node name="UI" type="Control" parent="Gatcha/CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
@@ -212,18 +379,29 @@ text = "back"
 [node name="Chest" type="Node3D" parent="Gatcha/CanvasLayer2"]
 script = ExtResource("6_tefeu")
 
+[node name="chest" parent="Gatcha/CanvasLayer2/Chest" instance=ExtResource("7_o6xl0")]
+
+[node name="AnimationPlayer" parent="Gatcha/CanvasLayer2/Chest/chest" index="2"]
+autoplay = "top_drop"
+
+[node name="AnimationPlayerBottom" type="AnimationPlayer" parent="Gatcha/CanvasLayer2/Chest/chest"]
+libraries = {
+&"": SubResource("AnimationLibrary_47vgn")
+}
+autoplay = "top_drop"
+
 [node name="Camera3D" type="Camera3D" parent="Gatcha/CanvasLayer2/Chest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9245683)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.0559773, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Gatcha/CanvasLayer2/Chest"]
 environment = SubResource("Environment_al0gs")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Gatcha/CanvasLayer2/Chest"]
-mesh = SubResource("BoxMesh_tefeu")
 
 [connection signal="value_changed" from="Game/UI/VBoxContainer/XPBox/XPBar" to="." method="_on_xp_bar_value_changed"]
 [connection signal="pressed" from="Game/UI/debug_end_game" to="." method="_on_debug_end_game_pressed"]
 [connection signal="pressed" from="Game/UI/debug_merge_all" to="." method="_on_debug_merge_all_pressed"]
 [connection signal="pressed" from="Game/UI/half_clear" to="." method="_on_half_clear_pressed"]
 [connection signal="pressed" from="Game/UI/HBoxContainer/ChestButton" to="." method="_on_chest_button_pressed"]
-[connection signal="pressed" from="Gatcha/CanvasLayer/UI/Button" to="Gatcha" method="_on_button_pressed"]
+[connection signal="input_event" from="Gatcha/CanvasLayer/Node2D/Area2D" to="Gatcha" method="_on_area_2d_input_event"]
+[connection signal="pressed" from="Gatcha/CanvasLayer/UI/Button" to="." method="_on_button_pressed"]
+
+[editable path="Gatcha/CanvasLayer2/Chest/chest"]

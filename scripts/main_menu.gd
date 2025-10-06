@@ -6,8 +6,8 @@ const MAIN = preload("res://scenes/main.tscn")
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-    if anim_name == "fade_out":
-        get_tree().change_scene_to_packed(MAIN)
+	if anim_name == "fade_out":
+		get_tree().change_scene_to_packed(MAIN)
 
 # UI Logic
 @onready var main: Control = $MenuUI/Main
@@ -15,14 +15,14 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_start_button_pressed() -> void:
-    animation_player.play("fade_out")
+	animation_player.play("fade_out")
 
 
 func _on_options_button_pressed() -> void:
-    main.hide()
-    options.show()
+	main.hide()
+	options.show()
 
 
 func _on_back_button_pressed() -> void:
-    main.show()
-    options.hide()
+	main.show()
+	options.hide()
