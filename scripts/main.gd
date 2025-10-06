@@ -5,7 +5,6 @@ const BALL_CLASS = preload("res://scenes/balls.tscn")
 
 @onready var game: CanvasLayer = $Game
 @onready var score_label: Label = $Game/UI/PanelContainer/VBoxContainer/Score
-@onready var xp_amount: Label = $Game/UI/PanelContainer/VBoxContainer/XPBox/XPAmount
 @onready var xp_bar: TextureProgressBar = $Game/UI/PanelContainer/VBoxContainer/XPBox/XPBar
 @onready var xp_label: Label = $Game/UI/PanelContainer/VBoxContainer/XPBox/XPLabel
 @onready var chest_count: Label = $Game/UI/PanelContainer/VBoxContainer/XPBox/HBoxContainer/ChestCount
@@ -136,7 +135,6 @@ func threshold_clear():
 
 
 func _on_xp_change():
-	xp_amount.text = str(Globals.xp)
 	xp_bar.value = Globals.xp
 	print(xp_bar.value)
 

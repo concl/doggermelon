@@ -5,11 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://cgwwfa8hsq1u4" path="res://assets/Furniture/Shelf.png" id="3_85g3d"]
 [ext_resource type="Texture2D" uid="uid://60gfv8j7uh2f" path="res://assets/Furniture/Bucket.png" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://c5tb5ugocspd1" path="res://assets/Furniture/Trophy_case.png" id="3_tipki"]
-[ext_resource type="Texture2D" uid="uid://wr130120yclm" path="res://icon.svg" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://dsd2hbvx0jvh2" path="res://scripts/gatcha.gd" id="5_tbgi4"]
 [ext_resource type="Script" path="res://scripts/check_mouse.gd" id="6_choun"]
+[ext_resource type="Texture2D" uid="uid://cse0ocx2mrf4w" path="res://assets/xp_bar.png" id="6_choun"]
 [ext_resource type="Script" uid="uid://d0vn0jkk7awv7" path="res://scripts/chest.gd" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://bvj8j01ikqro2" path="res://assets/chest_button.png" id="7_choun"]
 [ext_resource type="PackedScene" uid="uid://c80tjc7agqg7d" path="res://assets/3d/chest.glb" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://cvcl3hlxpcpw5" path="res://assets/chest_button_open.png" id="8_ya4ey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
 size = Vector2(630, 12)
@@ -20,12 +22,12 @@ size = Vector2(630, 12)
 size = Vector2(1274, 1180)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jyhfs"]
+[sub_resource type="Gradient" id="Gradient_choun"]
+offsets = PackedFloat32Array(0, 0.7753623, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.7753623, 0.7753623, 0.7753623, 1, 1, 1, 1, 1)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tbgi4"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tefeu"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o6xl0"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ya4ey"]
+gradient = SubResource("Gradient_choun")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
 size = Vector2(500, 300)
@@ -320,8 +322,8 @@ mouse_filter = 2
 layout_mode = 1
 offset_left = 27.0
 offset_top = 19.0
-offset_right = 427.0
-offset_bottom = 69.0
+offset_right = 277.0
+offset_bottom = 123.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Game/UI/PanelContainer"]
 layout_mode = 2
@@ -335,16 +337,19 @@ size_flags_vertical = 3
 
 [node name="XPLabel" type="Label" parent="Game/UI/PanelContainer/VBoxContainer/XPBox"]
 layout_mode = 2
-text = "XP: "
+text = " "
 
 [node name="XPAmount" type="Label" parent="Game/UI/PanelContainer/VBoxContainer/XPBox"]
 layout_mode = 2
 
 [node name="XPBar" type="TextureProgressBar" parent="Game/UI/PanelContainer/VBoxContainer/XPBox"]
+clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 nine_patch_stretch = true
-texture_progress = SubResource("PlaceholderTexture2D_jyhfs")
+texture_over = ExtResource("6_choun")
+texture_progress = SubResource("GradientTexture2D_ya4ey")
+texture_progress_offset = Vector2(7.015, 18.065)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Game/UI/PanelContainer/VBoxContainer/XPBox"]
 layout_mode = 2
@@ -352,11 +357,8 @@ layout_mode = 2
 [node name="ChestButton" type="TextureButton" parent="Game/UI/PanelContainer/VBoxContainer/XPBox/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture_normal = ExtResource("4_jyhfs")
-texture_pressed = ExtResource("4_jyhfs")
-texture_hover = SubResource("PlaceholderTexture2D_tbgi4")
-texture_disabled = SubResource("PlaceholderTexture2D_tefeu")
-texture_focused = SubResource("PlaceholderTexture2D_o6xl0")
+texture_normal = ExtResource("7_choun")
+texture_pressed = ExtResource("8_ya4ey")
 ignore_texture_size = true
 stretch_mode = 4
 
