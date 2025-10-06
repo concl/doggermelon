@@ -1,12 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://dx6bicmwfxw14"]
+[gd_scene load_steps=18 format=3 uid="uid://dx6bicmwfxw14"]
 
 [ext_resource type="Script" uid="uid://d27f6voftj48k" path="res://scripts/main.gd" id="1_0wfyh"]
-[ext_resource type="Texture2D" uid="uid://bjrj34u2ybwyd" path="res://assets/background_placeholder.png" id="2_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://su76g6rv7t6s" path="res://assets/Shelf.png" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://60gfv8j7uh2f" path="res://assets/Bucket.png" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://wr130120yclm" path="res://icon.svg" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://dsd2hbvx0jvh2" path="res://scripts/gatcha.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://d0vn0jkk7awv7" path="res://scripts/chest.gd" id="6_tefeu"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tipki"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
+size = Vector2(504, 12)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tefeu"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jyhfs"]
 
@@ -45,7 +51,19 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_o6xl0")
+texture = SubResource("PlaceholderTexture2D_tipki")
+
+[node name="Ceiling" type="Area2D" parent="Game"]
+position = Vector2(865, 391)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Ceiling"]
+position = Vector2(-13, -4)
+shape = SubResource("RectangleShape2D_tefeu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/Ceiling"]
+position = Vector2(-4.9999924, -3)
+scale = Vector2(494, 6.5)
+texture = SubResource("CanvasTexture_tefeu")
 
 [node name="Shelf" type="StaticBody2D" parent="Game"]
 position = Vector2(243, 324)
@@ -80,7 +98,7 @@ texture = ExtResource("3_jyhfs")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Game/Bucket"]
 position = Vector2(12.237995, 37.791706)
 scale = Vector2(2.8475933, 2.3793857)
-polygon = PackedVector2Array(-171.45636, -160.4581, -168.64697, -8.317993, -154.60004, 132.89493, 144.59998, 133.7355, 155.1352, 74.89676, 162.15869, -160.4581, 155.1352, -160.4581, 153.02814, -67.15671, 148.81409, 58.085724, 138.27887, 126.1705, -148.2789, 126.1705, -156.70706, 57.245148, -162.32587, -70.51892, -163.0282, -160.4581)
+polygon = PackedVector2Array(-179, -152, -192, 190, 182, 190, 174, -147, 152, -131, 121.42255, 108.51889, 1.321106, 121.1272, -133.5296, 101.794464, -157, -136)
 
 [node name="Camera2D" type="Camera2D" parent="Game"]
 position = Vector2(576, 324)
@@ -90,6 +108,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -200,4 +220,4 @@ mesh = SubResource("BoxMesh_tefeu")
 [connection signal="pressed" from="Game/UI/debug_end_game" to="." method="_on_debug_end_game_pressed"]
 [connection signal="pressed" from="Game/UI/debug_merge_all" to="." method="_on_debug_merge_all_pressed"]
 [connection signal="pressed" from="Game/UI/HBoxContainer/ChestButton" to="." method="_on_chest_button_pressed"]
-[connection signal="pressed" from="Gatcha/CanvasLayer/UI/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Gatcha/CanvasLayer/UI/Button" to="Gatcha" method="_on_button_pressed"]
