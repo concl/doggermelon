@@ -305,6 +305,35 @@ size_flags_horizontal = 3
 nine_patch_stretch = true
 texture_progress = SubResource("PlaceholderTexture2D_jyhfs")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Game/UI/PanelContainer/VBoxContainer/XPBox"]
+layout_mode = 2
+
+[node name="ChestButton" type="TextureButton" parent="Game/UI/PanelContainer/VBoxContainer/XPBox/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("4_jyhfs")
+texture_pressed = ExtResource("4_jyhfs")
+texture_hover = SubResource("PlaceholderTexture2D_tbgi4")
+texture_disabled = SubResource("PlaceholderTexture2D_tefeu")
+texture_focused = SubResource("PlaceholderTexture2D_o6xl0")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="ChestCount" type="Label" parent="Game/UI/PanelContainer/VBoxContainer/XPBox/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Game/UI/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="Game/UI/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Level: "
+
+[node name="Level" type="Label" parent="Game/UI/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "1"
+
 [node name="debug_end_game" type="Button" parent="Game/UI"]
 layout_mode = 0
 offset_left = 8.0
@@ -416,10 +445,10 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.63
 environment = SubResource("Environment_al0gs")
 
 [connection signal="value_changed" from="Game/UI/PanelContainer/VBoxContainer/XPBox/XPBar" to="." method="_on_xp_bar_value_changed"]
+[connection signal="pressed" from="Game/UI/PanelContainer/VBoxContainer/XPBox/HBoxContainer/ChestButton" to="." method="_on_chest_button_pressed"]
 [connection signal="pressed" from="Game/UI/debug_end_game" to="." method="_on_debug_end_game_pressed"]
 [connection signal="pressed" from="Game/UI/debug_merge_all" to="." method="_on_debug_merge_all_pressed"]
 [connection signal="pressed" from="Game/UI/half_clear" to="." method="_on_half_clear_pressed"]
-[connection signal="pressed" from="Game/UI/HBoxContainer/ChestButton" to="." method="_on_chest_button_pressed"]
 [connection signal="input_event" from="Gatcha/CanvasLayer/Node2D/Area2D" to="Gatcha" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="Gatcha/CanvasLayer/UI/Back" to="." method="_on_button_pressed"]
 [connection signal="animation_finished" from="Gatcha/CanvasLayer2/Chest/chest/AnimationPlayerBottom" to="Gatcha" method="_on_animation_player_bottom_animation_finished"]
