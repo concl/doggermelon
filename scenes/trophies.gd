@@ -20,7 +20,7 @@ var level_trophies_default = {
 }
 var y_level = 648
 var x_delta = 235
-var x_initial = 138
+var x_initial = 143
 var shelf_positions = {
 	4: Vector2(x_initial, y_level),
 	5: Vector2(x_initial + 1*x_delta, y_level),

@@ -302,7 +302,6 @@ shape = SubResource("RectangleShape2D_choun")
 position = Vector2(961, 541)
 
 [node name="UI" type="Control" parent="Game"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -377,36 +376,37 @@ text = "1"
 
 [node name="debug_end_game" type="Button" parent="Game/UI"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 608.0
-offset_right = 92.0
-offset_bottom = 639.0
+offset_left = 62.0
+offset_top = 855.625
+offset_right = 146.0
+offset_bottom = 886.625
 text = "eng game
 "
 
 [node name="debug_merge_all" type="Button" parent="Game/UI"]
 layout_mode = 0
-offset_left = 117.0
-offset_top = 603.0
-offset_right = 201.0
-offset_bottom = 634.0
+offset_left = 211.0
+offset_top = 854.63
+offset_right = 306.0
+offset_bottom = 885.63
 text = "MERGE ALL"
 
 [node name="debug_delete_mode" type="Button" parent="Game/UI"]
+visible = false
 layout_mode = 0
-offset_left = 117.0
-offset_top = 603.0
-offset_right = 201.0
-offset_bottom = 634.0
+offset_left = 564.0
+offset_top = 854.63
+offset_right = 665.0
+offset_bottom = 885.63
 text = "deletemode
 "
 
 [node name="half_clear" type="Button" parent="Game/UI"]
 layout_mode = 0
-offset_left = 272.0
-offset_top = 612.0
-offset_right = 367.0
-offset_bottom = 643.0
+offset_left = 346.0
+offset_top = 857.61475
+offset_right = 519.0
+offset_bottom = 888.61475
 text = "half_clear (on trigger)"
 
 [node name="test_gamestage" type="Label" parent="Game"]
