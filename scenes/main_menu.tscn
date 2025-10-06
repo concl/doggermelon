@@ -217,7 +217,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackButton" type="Button" parent="MenuUI/Options/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuUI/Options/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuUI/Options/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MenuUI/Options/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Fullscreen"
+horizontal_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="MenuUI/Options/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MenuUI/Options/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -242,7 +258,8 @@ libraries = {
 [connection signal="pressed" from="MenuUI/Main/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuUI/Main/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="MenuUI/Main/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="MenuUI/Options/PanelContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="toggled" from="MenuUI/Options/PanelContainer/VBoxContainer/HBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="MenuUI/Options/PanelContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
 [editable path="lucy"]
