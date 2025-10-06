@@ -8,7 +8,7 @@ const BALL_CLASS = preload("res://scenes/balls.tscn")
 @onready var xp_amount: Label = $Game/UI/PanelContainer/VBoxContainer/XPBox/XPAmount
 @onready var xp_bar: TextureProgressBar = $Game/UI/PanelContainer/VBoxContainer/XPBox/XPBar
 @onready var xp_label: Label = $Game/UI/PanelContainer/VBoxContainer/XPBox/XPLabel
-@onready var chest_count: Label = $Game/UI/HBoxContainer/ChestCount
+@onready var chest_count: Label = $Game/UI/PanelContainer/VBoxContainer/XPBox/HBoxContainer/ChestCount
 @onready var xp_level: Label = $Game/UI/PanelContainer/VBoxContainer/HBoxContainer/Level
 
 @onready var bucket_sprite = $Game/Bucket/Sprite2D
@@ -165,5 +165,5 @@ func _on_half_clear_pressed() -> void:
 
 func _handle_chests():
 	chest_count.text = str(Globals.unopened_chests)
-	xp_level.text = Globals.level
+	xp_level.text = str(Globals.level)
 	

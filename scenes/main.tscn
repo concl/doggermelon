@@ -273,6 +273,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 1.0051132)
 mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="Game/UI"]
@@ -359,31 +360,6 @@ offset_right = 367.0
 offset_bottom = 643.0
 text = "half_clear (on trigger)"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Game/UI"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -60.0
-offset_top = 15.0
-offset_right = -20.0
-offset_bottom = 55.0
-grow_horizontal = 0
-
-[node name="ChestButton" type="TextureButton" parent="Game/UI/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = ExtResource("4_jyhfs")
-texture_pressed = ExtResource("4_jyhfs")
-texture_hover = SubResource("PlaceholderTexture2D_tbgi4")
-texture_disabled = SubResource("PlaceholderTexture2D_tefeu")
-texture_focused = SubResource("PlaceholderTexture2D_o6xl0")
-ignore_texture_size = true
-stretch_mode = 4
-
-[node name="ChestCount" type="Label" parent="Game/UI/HBoxContainer"]
-layout_mode = 2
-
 [node name="test_gamestage" type="Label" parent="Game"]
 offset_right = 40.0
 offset_bottom = 23.0
@@ -395,10 +371,9 @@ script = ExtResource("5_tbgi4")
 [node name="CanvasLayer" type="CanvasLayer" parent="Gatcha"]
 
 [node name="Node2D" type="Node2D" parent="Gatcha/CanvasLayer"]
-position = Vector2(576, 324)
+position = Vector2(970, 546)
 
 [node name="Area2D" type="Area2D" parent="Gatcha/CanvasLayer/Node2D"]
-position = Vector2(360, 227)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gatcha/CanvasLayer/Node2D/Area2D"]
 shape = SubResource("RectangleShape2D_o6xl0")
