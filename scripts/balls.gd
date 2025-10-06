@@ -192,8 +192,6 @@ func merge(other):
 func collect_to_xp(location = Globals.xp_label_pos):
 	var randomizer = randf()
 	
-	randomizer = 0.67
-	
 	# 0-60 [nothing]
 	# 60-90 [trophy or nothing]
 	# 90-100 [collectible]
@@ -205,7 +203,7 @@ func collect_to_xp(location = Globals.xp_label_pos):
 		if randomizer < 0.9 && lvl == Globals.trophy_level+1:
 			Globals.trophy_level+=1
 			pickup_id = 0
-		elif randomizer > 0.9:
+		elif randomizer > 0.95:
 			var randomizer2 = randi_range(1,2)
 			Globals.collectibles[randomizer2] += Vector2(1,1)
 			pickup_id = randomizer2
