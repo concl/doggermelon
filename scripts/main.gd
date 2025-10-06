@@ -165,15 +165,18 @@ func _on_chest_button_pressed() -> void:
 
 
 func _on_button_pressed() -> void:
-	game.show()
-	gatcha.hide()
-	
-	var item = gatcha.item.duplicate()
-	
-	game.add_child(item)
-	item.global_position = gatcha.item.global_position
-	item.area_2d.show()
-	item.move_to_shelf()
+    game.show()
+    gatcha.hide()
+    
+    var item = gatcha.item.duplicate()
+    
+    game.add_child(item)
+    item.currentID = gatcha.item.currentID
+    item.global_position = gatcha.item.global_position
+    item.shelf_pos = gatcha.item.shelf_pos
+    item.area_2d.show()
+    print(item.currentID)
+    item.move_to_shelf()
 
 
 func _on_half_clear_pressed() -> void:
