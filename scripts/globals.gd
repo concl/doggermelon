@@ -45,7 +45,27 @@ func update_xp(added):
 		gain_chest.emit()
 	xp_changed.emit()
 	
+func play_sound(file_path: String) -> void:
+	# Create an AudioStreamPlayer node dynamically
+	var player := AudioStreamPlayer.new()
+	
+	# Load the audio stream from the given file path
+	var stream := load(file_path)
+	if stream == null:
+		push_error("Failed to load sound file: " + file_path)
+		return
 
+	player.stream = stream
+	player.autoplay = false
+
+	# Add the player to the scene tree (under the root so it persists while playing)
+	get_tree().root.add_child(player)
+
+	# Play the sound
+	player.play()
+
+	# Queue free after the sound finishes playing
+	player.connect("finished", Callable(player, "queue_free"))
 
 func update_chests(change):
 	unopened_chests += change
