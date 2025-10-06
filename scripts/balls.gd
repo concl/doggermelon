@@ -11,10 +11,9 @@ var merged = false
 var can_drop = false
 var holding = false
 var waiting_for_pickup = false
+var pickup_value = null
 
 var shake = false
-var flash = 0
-
 
 var spawn_probabilities : Dictionary = {
 	Globals.GameStage.EARLY: {
@@ -63,8 +62,7 @@ var sprite_levels_default = {
 	7: preload("res://assets/balls_default/purpleball.png")
 }
 
-func _process(delta: float) -> void:
-	
+func _process(_delta: float) -> void:
 	if shake:
 		sprite.position = Vector2(randf() * 10, randf() * 10)
 
@@ -90,28 +88,8 @@ func freeze_ball(value: bool):
 func toggle_shake():
 	if not shake:
 		shake = true
-		flash = 1
-		var tween = create_tween()
-		tween.tween_property(sprite, "material:shader_parameter/t", 1.0, 0.3)
-		tween.connect("finished", flash_unflash)
 	else:
-		flash = 0
 		shake = false
-	
-func flash_unflash():
-	if flash == 0:
-		return
-	elif flash == 1:
-		flash = 2
-		var tween = create_tween()
-		tween.tween_property(sprite.material, "shader_parameter/t", 0.0, 0.3)
-		tween.connect("finished", flash_unflash)
-	elif flash == 2:
-		flash = 1
-		var tween = create_tween()
-		tween.tween_property(sprite.material, "shader_parameter/t", 1.0, 0.3)
-		tween.connect("finished", flash_unflash)
-
 
 func choose_level_by_probability(prob_table: Dictionary) -> int:
 	var rand_val := randf()
@@ -142,6 +120,8 @@ func spawn(stage: int) -> void:
 	
 
 func _ready() -> void:
+	randomize()
+	
 	$Sprite2D.texture = sprite_levels[lvl]
 	$Sprite2D.scale = get_scalar(lvl)
 	$CollisionShape2D.scale = $Sprite2D.scale
@@ -206,12 +186,26 @@ func merge(other):
 
 
 func collect_to_xp(location = Globals.xp_label_pos):
-	var randomizer = 0
-	if randomizer < 0.2:
-		Globals.collecting += 1
-		var new_ball = create_ball(global_position, lvl)
-		new_ball.freeze_ball(true)
-		new_ball.generate_pickup()
+	var randomizer = randf()
+	
+	randomizer = 0.67
+	
+	# 0-60 [nothing]
+	# 60-90 [trophy or nothing]
+	# 90-100 [collectible]
+	if randomizer < 0.6:
+		pass
+	else:
+		var trophy = null
+		if randomizer < 0.9 && lvl == Globals.trophy_level+1:
+			trophy = true
+		elif randomizer > 0.9:
+			trophy = false
+		if trophy:
+			Globals.collecting += 1
+			var new_ball = create_ball(global_position, lvl)
+			new_ball.freeze_ball(true)
+			new_ball.generate_pickup(trophy)
 	
 	freeze_ball(true)
 	var tween = create_tween()
@@ -232,14 +226,22 @@ func create_ball(location: Vector2, ball_level: int = lvl+1): # previously spawn
 	#print(new_ball.global_position)
 	return new_ball
 
-func generate_pickup():
-	# 50% drop 
+func generate_pickup(trophy):
+	toggle_shake()
+	if trophy:
+		pickup_value = 1
+	else:
+		pickup_value = 2
 	waiting_for_pickup = true
-	# always drop trophy
+
 
 func _on_area_2d_mouse_entered() -> void:
 	if waiting_for_pickup == true:
-		drop_trophy(lvl)
+		toggle_shake()
+		if pickup_value == 1:
+			drop_trophy(lvl)
+		elif pickup_value == 2:
+			drop_collectible(1)
 		queue_free()
 
 func drop_trophy(level):
@@ -247,5 +249,6 @@ func drop_trophy(level):
 	get_tree().current_scene.game.add_child(trophy)
 	trophy.setup(global_position, level)
 
-		
+func drop_collectible(collectible_id):
+	print("dropped",collectible_id)
 	

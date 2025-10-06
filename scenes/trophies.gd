@@ -23,9 +23,6 @@ var shelf_pos = null
 var moved = false
 
 func setup(spawnpoint, level):
-	level += 4
-	if level > 8:
-		level = 8
 	shelf_pos = shelf_positions[level]
 	$Sprite2D.texture = level_trophies_default[level]
 	$Sprite2D.scale = Vector2(0.05,0.05)
@@ -40,3 +37,4 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 		tween.tween_property(self, "global_position", shelf_pos, 0.5)
 		moved = true
 		Globals.collecting -= 1
+		Globals.trophy_level += 1
