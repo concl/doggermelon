@@ -7,7 +7,7 @@ extends Node2D
 
 var shelf_size = Vector2(0.3,0.3)
 
-var y_level = 318
+var y_level = 368
 var shelf_positions = {
 	1: Vector2(370, y_level), # sitting dog
 	2: Vector2(832, y_level) # down dog
