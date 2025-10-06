@@ -54,14 +54,15 @@ func move_to_shelf():
 		Globals.collectibles_on_shelf[currentID] = true
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
-	# move to shelf on click
-	if event.is_action_pressed("click"):
-		print("clicked")
-		if !onShelf:
-			move_to_shelf()
-		else:
-			if !isPassive:
-				Globals.emit_signal("powerup_used", currentID)
-			
+    # move to shelf on click
+    if event.is_action_pressed("click"):
+        print("clicked")
+        if !onShelf:
+            move_to_shelf()
+        else:
+            if !isPassive:
+                print("asdf")
+                Globals.emit_signal("powerup_used", currentID)
+            
 func fade_in():
 	animation_player.play("fade_in")
