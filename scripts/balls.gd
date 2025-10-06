@@ -3,6 +3,7 @@ extends RigidBody2D
 class_name Ball
 const BALL_CLASS = preload("res://scenes/balls.tscn")
 const TROPHY_SCENE = preload("res://scenes/trophies.tscn")
+const COLLECTIBLE_SCENE = preload("res://scenes/collectible.tscn")
 
 @onready var sprite = $Sprite2D
 
@@ -193,6 +194,8 @@ func collect_to_xp(location = Globals.xp_label_pos):
 	# 0-60 [nothing]
 	# 60-90 [trophy or nothing]
 	# 90-100 [collectible]
+	
+	randomizer = 0.67
 	if randomizer < 0.6:
 		pass
 	else:
@@ -202,11 +205,11 @@ func collect_to_xp(location = Globals.xp_label_pos):
 			trophy = true
 		elif randomizer > 0.9:
 			trophy = false
-		if trophy:
-			Globals.collecting += 1
-			var new_ball = create_ball(global_position, lvl)
-			new_ball.freeze_ball(true)
-			new_ball.generate_pickup(trophy)
+		
+		Globals.collecting += 1
+		var new_ball = create_ball(global_position, lvl)
+		new_ball.freeze_ball(true)
+		new_ball.generate_pickup(trophy)
 	
 	freeze_ball(true)
 	var tween = create_tween()
@@ -252,5 +255,7 @@ func drop_trophy(level):
 	trophy.setup(global_position, level)
 
 func drop_collectible(collectible_id):
-	print("dropped",collectible_id)
+	var collectible = COLLECTIBLE_SCENE.instantiate()
+	get_tree().current_scene.game.add_child(collectible)
+	collectible.setup(global_position, collectible_id)
 	

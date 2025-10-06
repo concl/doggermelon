@@ -230,7 +230,7 @@ mouse_filter = 2
 texture = ExtResource("2_o6xl0")
 
 [node name="Ceiling" type="Area2D" parent="Game"]
-position = Vector2(850, 162)
+position = Vector2(1236, 379)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Ceiling"]
 position = Vector2(-13, -4)
@@ -242,17 +242,17 @@ scale = Vector2(494, 6.5)
 texture = SubResource("CanvasTexture_tefeu")
 
 [node name="Shelf2" type="Sprite2D" parent="Game"]
-position = Vector2(291, 258)
+position = Vector2(676, 475)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_85g3d")
 
 [node name="Trophy_case2" type="Sprite2D" parent="Game"]
-position = Vector2(281, 467)
+position = Vector2(666, 684)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_tipki")
 
 [node name="Bucket" type="StaticBody2D" parent="Game"]
-position = Vector2(847, 324)
+position = Vector2(1232, 541)
 scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Game/Bucket"]
@@ -264,7 +264,7 @@ scale = Vector2(2.8475933, 2.3793857)
 polygon = PackedVector2Array(-171.45636, -160.4581, -160.21881, 133.7355, 154.43286, 135.4166, 161.4563, -159.61754, 155.1352, -159.61754, 149.51642, 36.231323, 138.27887, 127.01108, -148.2789, 127.01108, -156.70706, 49.680176, -163.73056, -160.4581)
 
 [node name="Camera2D" type="Camera2D" parent="Game"]
-position = Vector2(576, 324)
+position = Vector2(961, 541)
 
 [node name="UI" type="Control" parent="Game"]
 layout_mode = 3
@@ -360,6 +360,7 @@ script = ExtResource("5_tbgi4")
 position = Vector2(576, 324)
 
 [node name="Area2D" type="Area2D" parent="Gatcha/CanvasLayer/Node2D"]
+position = Vector2(360, 227)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gatcha/CanvasLayer/Node2D/Area2D"]
 shape = SubResource("RectangleShape2D_o6xl0")
