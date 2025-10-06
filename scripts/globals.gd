@@ -16,11 +16,12 @@ var unopened_chests = 0
 var xp_label_pos = null
 
 var collectibles = {
+	# (number of total owned, number of uses left)
 	# active:
-	1: 0, # automereger
+	1: Vector2(0,0), # automerger
 	
 	# passive:
-	2: 0, # threshold 1up
+	2: Vector2(0,0), # threshold 1up
 	
 }	
 
