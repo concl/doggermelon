@@ -55,7 +55,8 @@ func _process(_delta):
 	
 	var score = calculate_score()
 	score_label.text = "Score: " + str(score)
-	
+	if score <= 20:
+		gamestage = 0
 	if score > 20 && score < 200:
 		gamestage = 1
 	if score > 200:

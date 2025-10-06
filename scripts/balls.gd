@@ -73,7 +73,7 @@ func level_to_value(level) -> int:
 
 func get_scalar(level) -> Vector2:
 	var starter = 0.04
-	var diff = 0.03
+	var diff = 0.024
 	var new_scale = level*diff + starter
 	return Vector2(new_scale,new_scale)
 
