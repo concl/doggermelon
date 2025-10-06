@@ -98,7 +98,7 @@ texture = ExtResource("3_jyhfs")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Game/Bucket"]
 position = Vector2(12.237995, 37.791706)
 scale = Vector2(2.8475933, 2.3793857)
-polygon = PackedVector2Array(-179, -152, -192, 190, 182, 190, 174, -147, 152, -131, 121.42255, 108.51889, 1.321106, 121.1272, -133.5296, 101.794464, -157, -136)
+polygon = PackedVector2Array(-171.45636, -160.4581, -160.21881, 133.7355, 154.43286, 135.4166, 161.4563, -159.61754, 155.1352, -159.61754, 149.51642, 36.231323, 138.27887, 127.01108, -148.2789, 127.01108, -156.70706, 49.680176, -163.73056, -160.4581)
 
 [node name="Camera2D" type="Camera2D" parent="Game"]
 position = Vector2(576, 324)
@@ -108,8 +108,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_right = 3.0
+offset_left = -3.0
+offset_top = -16.0
+offset_right = -3.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

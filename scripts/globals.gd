@@ -12,9 +12,9 @@ var level = 1
 var collectibles = []
 
 func update_xp(added):
-	xp += added
-	xp_changed.emit()
+    xp += added
+    xp_changed.emit()
 
 
 func add_collectible(collectible):
-	collectibles.append(collectible)
+    collectibles.append(collectible)
