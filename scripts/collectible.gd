@@ -17,9 +17,17 @@ var collectible_skins = {
 
 var shelf_pos = null
 var moved = false
+var currentID = null
+var onShelf = false
+var isPassive = false
 
 func setup(spawnpoint, id):
-	
+	currentID = id
+	match id:
+		1:
+			isPassive = false
+		2:
+			isPassive = true
 	shelf_pos = shelf_positions[id]
 	$Sprite2D.texture = collectible_skins[id]
 	$Sprite2D.scale = Vector2(0.1,0.1)
@@ -31,13 +39,16 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 		return
 	# move to shelf on click
 	if event.is_action_pressed("click"):
-		print("clicked")
-		var tween = create_tween()
-		tween.tween_property(self, "global_position", shelf_pos, 0.5)
-		moved = true
-		Globals.collecting -= 1
-
-
-
+		if !onShelf:
+			print("clicked")
+			var tween = create_tween()
+			tween.tween_property(self, "global_position", shelf_pos, 0.5)
+			moved = true
+			Globals.collecting -= 1
+		else:
+			print("click on shelf")
+			if !isPassive:
+				Globals.emit_signal("powerup_used", currentID)
+			
 func fade_in():
 	animation_player.play("fade_in")

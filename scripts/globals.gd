@@ -5,7 +5,9 @@ enum GameStage { EARLY, MID, LATE }
 signal xp_changed
 signal gain_chest
 
-signal clear_all_balls
+signal delete_next_ball
+
+
 
 var collecting = 0
 var xp: int = 0
@@ -16,13 +18,16 @@ var unopened_chests = 0
 var xp_label_pos = null
 
 var collectibles = {
+	# (number of total owned, number of uses left)
 	# active:
-	1: 0, # automereger
+	1: Vector2(0,0), # automerger
 	
 	# passive:
-	2: 0, # threshold 1up
+	2: Vector2(0,0), # threshold 1up
 	
 }	
+
+signal powerup_used(id)
 
 var trophy_level = 3 # 4, 5, 6, 7, 8
 

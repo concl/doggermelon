@@ -127,6 +127,10 @@ func _ready() -> void:
 	$CollisionShape2D.scale = $Sprite2D.scale
 	$Area2D/CollisionShape2D.scale = $Sprite2D.scale
 	#global_position = Vector2(get_viewport().size.x/2, 0)
+	
+	#Globals.delete_next_ball.connect(_delete_mode)
+
+#func
 
 func play_grow_animation():
 	$Sprite2D.scale = Vector2(0.0001, 0.0001)
@@ -204,7 +208,7 @@ func collect_to_xp(location = Globals.xp_label_pos):
 			pickup_id = 0
 		elif randomizer > 0.9:
 			var randomizer2 = randi_range(1,2)
-			Globals.collectibles[randomizer2] += 1
+			Globals.collectibles[randomizer2] += Vector2(1,1)
 			pickup_id = randomizer2
 		
 		if pickup_id:
@@ -221,6 +225,8 @@ func collect_to_xp(location = Globals.xp_label_pos):
 func remove():
 	Globals.update_xp(level_to_value(lvl) * 100 / 1024)
 	queue_free()
+
+
 
 func create_ball(location: Vector2, ball_level: int = lvl+1): # previously spawn_merged_ball
 	var new_ball = BALL_CLASS.instantiate()
