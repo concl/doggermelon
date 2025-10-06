@@ -1,13 +1,12 @@
 [gd_scene load_steps=18 format=3 uid="uid://dx6bicmwfxw14"]
 
 [ext_resource type="Script" uid="uid://d27f6voftj48k" path="res://scripts/main.gd" id="1_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://bjrj34u2ybwyd" path="res://assets/background_placeholder.png" id="2_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://su76g6rv7t6s" path="res://assets/Shelf.png" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://60gfv8j7uh2f" path="res://assets/Bucket.png" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://wr130120yclm" path="res://icon.svg" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://dsd2hbvx0jvh2" path="res://scripts/gatcha.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://d0vn0jkk7awv7" path="res://scripts/chest.gd" id="6_tefeu"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tipki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
 size = Vector2(504, 12)
@@ -51,10 +50,10 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("PlaceholderTexture2D_tipki")
+texture = ExtResource("2_o6xl0")
 
 [node name="Ceiling" type="Area2D" parent="Game"]
-position = Vector2(865, 391)
+position = Vector2(850, 162)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Ceiling"]
 position = Vector2(-13, -4)
@@ -104,14 +103,15 @@ polygon = PackedVector2Array(-171.45636, -160.4581, -160.21881, 133.7355, 154.43
 position = Vector2(576, 324)
 
 [node name="UI" type="Control" parent="Game"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -3.0
-offset_top = -16.0
-offset_right = -3.0
-offset_bottom = -16.0
+offset_left = -11.0
+offset_top = -88.0
+offset_right = -11.0
+offset_bottom = -88.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
