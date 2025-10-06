@@ -18,13 +18,15 @@ var level_trophies_default = {
 	#6: preload("res://assets/balls_default/dblueball.png"),
 	#7: preload("res://assets/balls_default/purpleball.png")
 }
-
+var y_level = 648
+var x_delta = 235
+var x_initial = 138
 var shelf_positions = {
-	4: Vector2(80, 467),
-	5: Vector2(180, 467),
-	6: Vector2(280, 467),
-	7: Vector2(380, 467),
-	8: Vector2(480, 467)
+	4: Vector2(x_initial, y_level),
+	5: Vector2(x_initial + 1*x_delta, y_level),
+	6: Vector2(x_initial + 2*x_delta, y_level),
+	7: Vector2(x_initial + 3*x_delta, y_level),
+	8: Vector2(x_initial + 4*x_delta, y_level)
 }
 
 var shelf_pos = null
@@ -33,7 +35,7 @@ var moved = false
 func setup(spawnpoint, level):
 	shelf_pos = shelf_positions[level]
 	$Sprite2D.texture = level_trophies_dog[level]
-	$Sprite2D.scale = Vector2(0.05,0.05)
+	$Sprite2D.scale = Vector2(0.15,0.15)
 	$Area2D/CollisionShape2D.scale = $Sprite2D.scale
 	global_position = spawnpoint
 	
