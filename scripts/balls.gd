@@ -195,21 +195,24 @@ func collect_to_xp(location = Globals.xp_label_pos):
 	# 60-90 [trophy or nothing]
 	# 90-100 [collectible]
 	
-	randomizer = 0.67
+	randomizer = 0.97
 	if randomizer < 0.6:
 		pass
 	else:
-		var trophy = null
+		var pickup_id = null
 		if randomizer < 0.9 && lvl == Globals.trophy_level+1:
 			Globals.trophy_level+=1
-			trophy = true
+			pickup_id = 0
 		elif randomizer > 0.9:
-			trophy = false
+			var randomizer2 = randi_range(1,2)
+			Globals.collectibles[randomizer2] += 1
+			pickup_id = randomizer2
 		
-		Globals.collecting += 1
-		var new_ball = create_ball(global_position, lvl)
-		new_ball.freeze_ball(true)
-		new_ball.generate_pickup(trophy)
+		if pickup_id:
+			Globals.collecting += 1
+			var new_ball = create_ball(global_position, lvl)
+			new_ball.freeze_ball(true)
+			new_ball.generate_pickup(pickup_id)
 	
 	freeze_ball(true)
 	var tween = create_tween()
@@ -230,15 +233,10 @@ func create_ball(location: Vector2, ball_level: int = lvl+1): # previously spawn
 	#print(new_ball.global_position)
 	return new_ball
 
-func generate_pickup(trophy):
+func generate_pickup(pickup_id):
 	toggle_shake()
-	if trophy:
-		pickup_value = 0
-	else:
-		var randomizer = randi_range(1,2)
-		pickup_value = randomizer
+	pickup_value = pickup_id
 	waiting_for_pickup = true
-
 
 func _on_area_2d_mouse_entered() -> void:
 	if waiting_for_pickup == true:
