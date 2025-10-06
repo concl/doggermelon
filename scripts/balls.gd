@@ -230,19 +230,20 @@ func create_ball(location: Vector2, ball_level: int = lvl+1): # previously spawn
 func generate_pickup(trophy):
 	toggle_shake()
 	if trophy:
-		pickup_value = 1
+		pickup_value = 0
 	else:
-		pickup_value = 2
+		var randomizer = randi_range(1,2)
+		pickup_value = randomizer
 	waiting_for_pickup = true
 
 
 func _on_area_2d_mouse_entered() -> void:
 	if waiting_for_pickup == true:
 		toggle_shake()
-		if pickup_value == 1:
+		if pickup_value == 0:
 			drop_trophy(lvl)
-		elif pickup_value == 2:
-			drop_collectible(1)
+		else:
+			drop_collectible(pickup_value)
 		queue_free()
 
 func drop_trophy(level):
