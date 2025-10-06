@@ -214,7 +214,7 @@ func collect_to_xp(location = Globals.xp_label_pos):
 	tween.connect("finished", remove)
 	
 func remove():
-	Globals.update_xp(level_to_value(lvl))
+	Globals.update_xp(level_to_value(lvl) * 100 / 1024)
 	queue_free()
 
 func create_ball(location: Vector2, ball_level: int = lvl+1): # previously spawn_merged_ball

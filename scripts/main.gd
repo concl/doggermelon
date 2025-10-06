@@ -9,6 +9,7 @@ const BALL_CLASS = preload("res://scenes/balls.tscn")
 @onready var xp_bar: TextureProgressBar = $Game/UI/VBoxContainer/XPBox/XPBar
 @onready var bucket_sprite = $Game/Bucket/Sprite2D
 @onready var xp_label: Label = $Game/UI/VBoxContainer/XPBox/XPLabel
+@onready var chest_count: Label = $Game/UI/HBoxContainer/ChestCount
 
 var current_ball: RigidBody2D = null
 var gamestage = 0
@@ -18,6 +19,7 @@ func _ready():
 	spawn_new_ball()
 	Globals.xp_changed.connect(_on_xp_change)
 	Globals.xp_label_pos = xp_label.global_position
+	Globals.gain_chest.connect(_handle_chests)
 	
 
 func spawn_new_ball():
@@ -90,7 +92,6 @@ func clear_all_balls():
 		if node is Ball && not node.freeze:
 			node.collect_to_xp()
 	
-	Globals.update_xp(total_score)
 
 func merge_all_balls():
 	var all_balls: Dictionary={}
@@ -143,8 +144,10 @@ func _on_xp_bar_value_changed(value: float) -> void:
 
 
 func _on_chest_button_pressed() -> void:
-	game.hide()
-	gatcha.activate()
+	if Globals.unopened_chests > 0:
+		Globals.update_chests(-1)
+		game.hide()
+		gatcha.activate()
 
 
 func _on_button_pressed() -> void:
@@ -154,3 +157,7 @@ func _on_button_pressed() -> void:
 
 func _on_half_clear_pressed() -> void:
 	threshold_clear()
+
+
+func _handle_chests():
+	chest_count.text = str(Globals.unopened_chests)

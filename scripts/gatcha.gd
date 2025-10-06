@@ -18,6 +18,9 @@ var item = null
 
 func activate():
 	show()
+	item.hide()
+	chest_hp = 5
+	chest.show()
 	animation_player.play("top_drop") 
 	animation_player_bottom.play("drop") 
 
