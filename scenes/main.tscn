@@ -411,6 +411,7 @@ text = "deletemode
 "
 
 [node name="half_clear" type="Button" parent="Game/UI"]
+visible = false
 layout_mode = 0
 offset_left = 346.0
 offset_top = 857.61475
