@@ -9,6 +9,8 @@ signal clear_all_balls
 var xp = 0
 var level = 1
 
+var xp_label_pos = null
+
 var collectibles = []
 
 func update_xp(added):

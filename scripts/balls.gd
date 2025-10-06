@@ -170,13 +170,12 @@ func merge(other):
 	tween.connect("finished", Callable(self, "_on_merge_tween_finished").bind(other, avg_position))
 
 
-func move_to_location(location: Vector2):
+func move_to_location(location = Globals.xp_label_pos):
+	freeze_ball(true)
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", location, 1.0)
 	tween.connect("finished", remove)
-	freeze_ball(true)
 	
-
 func remove():
 	Globals.update_xp(level_to_value(lvl))
 	queue_free()
