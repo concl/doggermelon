@@ -382,6 +382,7 @@ layout_mode = 2
 text = "1"
 
 [node name="debug_end_game" type="Button" parent="Game/UI"]
+visible = false
 layout_mode = 0
 offset_left = 62.0
 offset_top = 855.625
@@ -391,6 +392,7 @@ text = "eng game
 "
 
 [node name="debug_merge_all" type="Button" parent="Game/UI"]
+visible = false
 layout_mode = 0
 offset_left = 211.0
 offset_top = 854.63

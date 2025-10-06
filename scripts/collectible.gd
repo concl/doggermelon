@@ -27,7 +27,7 @@ func setup(spawnpoint, id):
 		1:
 			isPassive = false
 		2:
-			isPassive = true
+			isPassive = false
 	shelf_pos = shelf_positions[id]
 	$Sprite2D.texture = collectible_skins[id]
 	$Sprite2D.scale = Vector2(0.1,0.1)
